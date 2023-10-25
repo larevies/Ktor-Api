@@ -1,0 +1,65 @@
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "катя",
+  "email": "катя@гугл.ком",
+  "password": "суперпароль"
+}
+
+
+###
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "вася",
+  "email": "вася@гугл.ком",
+  "password": "суперпуперпароль"
+}
+
+###
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+
+{
+  "id": "3",
+  "name": "михаил иванович",
+  "email": "михаил1955@гугл.ком",
+  "password": "19551212"
+}
+
+
+###
+GET http://127.0.0.1:8080/user
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/user/1
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/user/4
+Accept: application/json
+
+###
+DELETE http://127.0.0.1:8080/user/2
+
+###
+DELETE http://127.0.0.1:8080/user/5
+
+
+// Проверка токенов
+
+###
+POST http://127.0.0.1:8080/login
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "катя",
+  "email": "катя@гугл.ком",
+  "password": "суперпароль"
+}
