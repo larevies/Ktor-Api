@@ -47,7 +47,7 @@ fun Application.configureSerialization() {
             }
         }
     }
-
+/*
     routing {
         post("/login") {
             val user = call.receive<User>()
@@ -71,6 +71,6 @@ fun Application.configureSerialization() {
 
         }
 
-    }
+    }*/
 
 }

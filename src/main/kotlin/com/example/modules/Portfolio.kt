@@ -15,13 +15,18 @@ import kotlinx.serialization.Serializable
     val id : Int,
     val id : Int,
     val id : Int
+
 )*/
 
 @Serializable
 data class Portfolio (
-    val id: Int
-
-
+    val id: String,
+    val user_id: String,
+    val name: String,
+    // val total_profit : Float,
+    // val change : Float
 )
 
-val portfolios = mutableListOf<Portfolio>();
+val portfolios = mutableListOf<Portfolio>()
+
+

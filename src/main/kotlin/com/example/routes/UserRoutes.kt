@@ -1,8 +1,12 @@
 package com.example.routes
 
 
+import com.auth0.jwt.JWT
+import com.auth0.jwt.algorithms.Algorithm
+import com.example.modules.Portfolio
 import com.example.modules.users
 import com.example.modules.User
+import com.example.modules.portfolios
 
 
 import io.ktor.http.HttpStatusCode
@@ -17,10 +21,14 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.post
 import io.ktor.server.routing.delete
 import io.ktor.server.routing.route
+import java.util.*
 
 fun Route.userRouting() {
 
+    var id_user: String ? = null
+
     route("/user") {
+
 
         /**
          * GET делает запрос на http сайтик и получает для нас какой-то ответ
@@ -104,8 +112,46 @@ fun Route.userRouting() {
             }
         }
 
+        post("/login") {
+            val user = call.receive<User>()
+            val found = users.find {it.email == user.email && it.password == user.password}
+            if (found != null) {
+                id_user = user.id
+            }
+            println(id_user)
 
 
+            // Check username and password
+            // ...
+                /*val token = JWT.create()
+                .withAudience(audience)
+                .withIssuer(issuer)
+                .withClaim("name", user.name)
+                .withExpiresAt(Date(System.currentTimeMillis() + 60000))
+                .sign(Algorithm.HMAC256(secret))
+            call.respond(hashMapOf("token" to token))*/
+        }
+
+        post("/{id?}/portfolios") {
+            val portfolio = call.receive<Portfolio>()
+            portfolios.add(portfolio)
+            call.respondText("Portfolio added correctly", status = HttpStatusCode.Created)
+        }
+
+        get ("/{id?}/portfolios") {
+            val id = call.parameters["id"] ?: return@get call.respondText(
+                "Missing id",
+                status = HttpStatusCode.BadRequest
+            )
+            val matchingPortfolios = portfolios.filter { it.user_id == id }
+            if (matchingPortfolios.isNotEmpty()) {
+                call.respond(matchingPortfolios)
+            } else {
+                return@get call.respondText (
+                    "No portfolios for user with id $id",
+                    status = HttpStatusCode.NotFound)
+            }
+        }
     }
 }
 
