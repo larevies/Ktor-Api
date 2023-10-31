@@ -13,3 +13,9 @@ data class User(
 
 val users = mutableListOf<User>()
 
+
+/**
+ * save user id once logged in?
+ * refer to portfolios by id
+ *
+ */
