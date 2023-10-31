@@ -3,10 +3,8 @@ package com.example.routes
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
-import com.example.modules.Portfolio
-import com.example.modules.users
-import com.example.modules.User
-import com.example.modules.portfolios
+import com.example.modules.*
+import com.example.modules.Currency
 
 
 import io.ktor.http.HttpStatusCode
@@ -167,6 +165,29 @@ fun Route.userRouting() {
             val removedPortfolios = matchingPortfolios.find { it.id == id_portfolio }
             if (removedPortfolios != null && portfolios.removeIf{it.id == id_portfolio}) {
                 call.respondText("Portfolio removed correctly", status = HttpStatusCode.Accepted)
+            } else {
+                call.respondText("Not Found", status = HttpStatusCode.NotFound)
+            }
+        }
+    }
+
+    route("/currency") {
+        get {
+            if (currencies.isNotEmpty()) {
+                call.respond(currencies)
+            } else {
+                call.respondText("No currencies found", status = HttpStatusCode.OK)
+            }
+        }
+        post {
+            val currency = call.receive<Currency>()
+            currencies.add(currency)
+            call.respondText("Currency added correctly", status = HttpStatusCode.Created)
+        }
+        delete("{id?}") {
+            val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
+            if (currencies.removeIf { it.id == id }) {
+                call.respondText("Currency removed correctly", status = HttpStatusCode.Accepted)
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
             }
