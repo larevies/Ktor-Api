@@ -169,6 +169,34 @@ fun Route.userRouting() {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
             }
         }
+
+        post("/{id?}/portfolios/{portfolioid?}/stocks") {
+            val stock = call.receive<Stock>()
+            stocks.add(stock)
+            call.respondText("Stock added correctly", status = HttpStatusCode.Created)
+        }
+
+        get ("/{id?}/portfolios/{portfolioid?}/stocks") {
+            val id_user_get_stocks = call.parameters["id"] ?: return@get call.respondText(
+                "Missing id",
+                status = HttpStatusCode.BadRequest
+            )
+
+            val id_portfolio = call.parameters["portfolioid"] ?: return@get call.respondText(
+                "Missing id",
+                status = HttpStatusCode.BadRequest
+            )
+
+            val matchingPortfolios = portfolios.filter { it.user_id == id_user_get_stocks }
+            if (matchingPortfolios.isNotEmpty()) {
+                call.respond(matchingPortfolios)
+            } else {
+                return@get call.respondText (
+                    "No portfolios for user with id $id_user_get_stocks",
+                    status = HttpStatusCode.NotFound)
+            }
+        }
+
     }
 
 
