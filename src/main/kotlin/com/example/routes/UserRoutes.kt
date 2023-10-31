@@ -123,13 +123,13 @@ fun Route.userRouting() {
 
             // Check username and password
             // ...
-                /*val token = JWT.create()
-                .withAudience(audience)
-                .withIssuer(issuer)
-                .withClaim("name", user.name)
-                .withExpiresAt(Date(System.currentTimeMillis() + 60000))
-                .sign(Algorithm.HMAC256(secret))
-            call.respond(hashMapOf("token" to token))*/
+            /*val token = JWT.create()
+            .withAudience(audience)
+            .withIssuer(issuer)
+            .withClaim("name", user.name)
+            .withExpiresAt(Date(System.currentTimeMillis() + 60000))
+            .sign(Algorithm.HMAC256(secret))
+        call.respond(hashMapOf("token" to token))*/
         }
 
         post("/{id?}/portfolios") {
@@ -152,7 +152,24 @@ fun Route.userRouting() {
                     status = HttpStatusCode.NotFound)
             }
         }
+
+        delete ("/{id?}/portfolios/{portfolioid?}") {
+            val user_id = call.parameters["id"] ?: return@delete call.respondText(
+                "Missing user id",
+                status = HttpStatusCode.BadRequest
+            )
+            val id_portfolio = call.parameters["portfolioid"] ?: return@delete call.respondText(
+                "Missing portfolio id",
+                status = HttpStatusCode.BadRequest
+            )
+
+            val matchingPortfolios = portfolios.filter { it.user_id == user_id }
+            val removedPortfolios = matchingPortfolios.find { it.id == id_portfolio }
+            if (removedPortfolios != null && portfolios.removeIf{it.id == id_portfolio}) {
+                call.respondText("Portfolio removed correctly", status = HttpStatusCode.Accepted)
+            } else {
+                call.respondText("Not Found", status = HttpStatusCode.NotFound)
+            }
+        }
     }
 }
-
-
