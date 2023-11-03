@@ -198,6 +198,37 @@ fun Route.userRouting() {
             }
         }
 
+        delete ("/{id?}/portfolios/{portfolioid?}/stocks/{stockid?}") {
+            val user_id = call.parameters["id"] ?: return@delete call.respondText(
+                "Missing user id",
+                status = HttpStatusCode.BadRequest
+            )
+            val id_portfolio = call.parameters["portfolioid"] ?: return@delete call.respondText(
+                "Missing portfolio id",
+                status = HttpStatusCode.BadRequest
+            )
+
+            val stock_id = call.parameters["stockid"] ?: return@delete call.respondText(
+                "Missing stock id",
+                status = HttpStatusCode.BadRequest
+            )
+
+            val matchingPortfolio = portfolios.find { it.id == id_portfolio && it.user_id == user_id }
+            if (matchingPortfolio != null) {
+                val matchingStock = stocks.find { it.id_portfolio == matchingPortfolio.id && it.id == stock_id}
+                if (matchingStock != null){
+                    stocks.remove(matchingStock)
+                    call.respondText("Stock removed from portfolio", status = HttpStatusCode.Accepted)
+                }else{
+                    call.respondText("Stock not found in the specified portfolio", status = HttpStatusCode.NotFound)
+                }
+
+            } else {
+                call.respondText("No portfolio found for the specified user and portfolio id", status = HttpStatusCode.NotFound)
+            }
+        }
+
+
         //Удаление акций при удалении портфеля
         delete("/{id?}/portfolios/{portfolioid?}") {
             val user_id = call.parameters["id"] ?: return@delete call.respondText(

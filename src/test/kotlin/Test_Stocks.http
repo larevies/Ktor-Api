@@ -4,15 +4,26 @@ POST http://127.0.0.1:8080/user/1/portfolios/1/stocks
 Content-Type: application/json
 
 {
-  "id": "1",
-  "id_portfolio": "1",
-  "id_company": "1",
-  "name": "aaa",
+  "id" : "1",
+  "id_portfolio" : "1",
+  "id_company" : "8",
+  "name" : "asdasfsdf",
   "current_price": 110.0,
-  "purchase_price": 90.0,
-  "amount": 6
+  "purchase_price": 90.0
 }
+
 
 ###
 GET http://127.0.0.1:8080/user/1/portfolios/1/stocks
 Accept: application/json
+
+###
+GET http://127.0.0.1:8080/user/1/portfolios/5/stocks
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/user/2/portfolios/1/stocks
+Accept: application/json
+
+###
+DELETE http://127.0.0.1:8080/user/1/portfolios/1/stocks/1
