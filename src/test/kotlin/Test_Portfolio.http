@@ -31,4 +31,4 @@ Accept: application/json
 
 
 ###
-DELETE http://127.0.0.1:8080/user/1/portfolios/5
+DELETE http://127.0.0.1:8080/user/1/portfolios/1

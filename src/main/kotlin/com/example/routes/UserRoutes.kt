@@ -103,7 +103,16 @@ fun Route.userRouting() {
 
         delete("{id?}") {
             val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
-            if (users.removeIf { it.id == id }) {
+
+            val removedUser = users.find{ it.id == id }
+            if (removedUser != null){
+                users.remove(removedUser)
+
+                val removedPortfolios = portfolios.filter { it.user_id == id }
+                portfolios.removeAll { it.user_id == id }
+
+                val removedStocks = stocks.filter { it.id_portfolio in removedPortfolios.map{ it.id }}
+                stocks.removeAll { it.id_portfolio in removedPortfolios.map{ it.id }}
                 call.respondText("User removed correctly", status = HttpStatusCode.Accepted)
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
@@ -163,8 +172,12 @@ fun Route.userRouting() {
 
             val matchingPortfolios = portfolios.filter { it.user_id == user_id }
             val removedPortfolios = matchingPortfolios.find { it.id == id_portfolio }
-            if (removedPortfolios != null && portfolios.removeIf{it.id == id_portfolio}) {
+            if (removedPortfolios != null &&
+                portfolios.removeIf{it.id == id_portfolio} &&
+                stocks.removeIf{it.id_portfolio == id_portfolio})
+            {
                 call.respondText("Portfolio removed correctly", status = HttpStatusCode.Accepted)
+
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
             }
