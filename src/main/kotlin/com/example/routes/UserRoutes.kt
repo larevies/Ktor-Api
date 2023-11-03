@@ -222,25 +222,25 @@ fun Route.userRouting() {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
             }
         }
-
-        //Удаление портфелей и акций при удалении пользователя
-        delete("{id?}") {
-            val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
-            val removedUser = users.find { it.id == id }
-
-            if (removedUser != null) {
-                portfolios.removeAll { it.user_id == id }
-                stocks.removeAll { it.user_id == id }
-
-                if (users.remove(removedUser)) {
-                    call.respondText("User removed correctly, along with associated portfolios and stocks", status = HttpStatusCode.Accepted)
-                } else {
-                    call.respondText("Not Found", status = HttpStatusCode.NotFound)
-                }
-            } else {
-                call.respondText("Not Found", status = HttpStatusCode.NotFound)
-            }
-        }
+//
+//        //Удаление портфелей и акций при удалении пользователя
+//        delete("{id?}") {
+//            val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
+//            val removedUser = users.find { it.id == id }
+//
+//            if (removedUser != null) {
+//                portfolios.removeAll { it.user_id == id }
+//                stocks.removeAll { it.user_id == id }
+//
+//                if (users.remove(removedUser)) {
+//                    call.respondText("User removed correctly, along with associated portfolios and stocks", status = HttpStatusCode.Accepted)
+//                } else {
+//                    call.respondText("Not Found", status = HttpStatusCode.NotFound)
+//                }
+//            } else {
+//                call.respondText("Not Found", status = HttpStatusCode.NotFound)
+//            }
+//        }
 
     }
 
