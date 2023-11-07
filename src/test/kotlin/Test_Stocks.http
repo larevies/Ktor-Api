@@ -12,6 +12,19 @@ Content-Type: application/json
   "purchase_price": 90.0
 }
 
+###
+POST http://127.0.0.1:8080/user/1/portfolios/1/stocks
+Content-Type: application/json
+
+{
+  "id" : "2",
+  "id_portfolio" : "1",
+  "id_company" : "8",
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
 
 ###
 GET http://127.0.0.1:8080/user/1/portfolios/1/stocks

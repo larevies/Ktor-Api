@@ -1,10 +1,7 @@
 package com.example.routes
 
 
-import com.auth0.jwt.JWT
-import com.auth0.jwt.algorithms.Algorithm
 import com.example.modules.*
-import com.example.modules.Currency
 
 
 import io.ktor.http.HttpStatusCode
@@ -19,11 +16,8 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.post
 import io.ktor.server.routing.delete
 import io.ktor.server.routing.route
-import java.util.*
 
 fun Route.userRouting() {
-
-    var id_user: String ? = null
 
     route("/user") {
 
@@ -104,40 +98,44 @@ fun Route.userRouting() {
         delete("{id?}") {
             val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
 
-            val removedUser = users.find{ it.id == id }
-            if (removedUser != null){
+            val removedUser = users.find { it.id == id }
+            if (removedUser != null) {
                 users.remove(removedUser)
 
                 val removedPortfolios = portfolios.filter { it.user_id == id }
                 portfolios.removeAll { it.user_id == id }
 
-                val removedStocks = stocks.filter { it.id_portfolio in removedPortfolios.map{ it.id }}
-                stocks.removeAll { it.id_portfolio in removedPortfolios.map{ it.id }}
+                val removedStocks = stocks.filter { it.id_portfolio in removedPortfolios.map { it.id } }
+                //все стокс
+
+                for (stock in removedStocks) {
+                    stocks.removeAll { it.id_portfolio == stock.id }
+                }
                 call.respondText("User removed correctly", status = HttpStatusCode.Accepted)
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
             }
         }
 
-        post("/login") {
+        /*post("/login") {
             val user = call.receive<User>()
-            val found = users.find {it.email == user.email && it.password == user.password}
+            val found = users.find { it.email == user.email && it.password == user.password }
             if (found != null) {
                 id_user = user.id
             }
-            println(id_user)
+
 
 
             // Check username and password
             // ...
-            /*val token = JWT.create()
+            val token = JWT.create()
             .withAudience(audience)
             .withIssuer(issuer)
             .withClaim("name", user.name)
             .withExpiresAt(Date(System.currentTimeMillis() + 60000))
             .sign(Algorithm.HMAC256(secret))
-        call.respond(hashMapOf("token" to token))*/
-        }
+        call.respond(hashMapOf("token" to token))
+        }*/
 
         post("/{id?}/portfolios") {
             val portfolio = call.receive<Portfolio>()
@@ -145,7 +143,7 @@ fun Route.userRouting() {
             call.respondText("Portfolio added correctly", status = HttpStatusCode.Created)
         }
 
-        get ("/{id?}/portfolios") {
+        get("/{id?}/portfolios") {
             val id = call.parameters["id"] ?: return@get call.respondText(
                 "Missing id",
                 status = HttpStatusCode.BadRequest
@@ -154,13 +152,14 @@ fun Route.userRouting() {
             if (matchingPortfolios.isNotEmpty()) {
                 call.respond(matchingPortfolios)
             } else {
-                return@get call.respondText (
+                return@get call.respondText(
                     "No portfolios for user with id $id",
-                    status = HttpStatusCode.NotFound)
+                    status = HttpStatusCode.NotFound
+                )
             }
         }
 
-        delete ("/{id?}/portfolios/{portfolioid?}") {
+        delete("/{id?}/portfolios/{portfolioid?}") {
             val user_id = call.parameters["id"] ?: return@delete call.respondText(
                 "Missing user id",
                 status = HttpStatusCode.BadRequest
@@ -173,9 +172,9 @@ fun Route.userRouting() {
             val matchingPortfolios = portfolios.filter { it.user_id == user_id }
             val removedPortfolios = matchingPortfolios.find { it.id == id_portfolio }
             if (removedPortfolios != null &&
-                portfolios.removeIf{it.id == id_portfolio} &&
-                stocks.removeIf{it.id_portfolio == id_portfolio})
-            {
+                portfolios.removeIf { it.id == id_portfolio } &&
+                stocks.removeIf { it.id_portfolio == id_portfolio }
+            ) {
                 call.respondText("Portfolio removed correctly", status = HttpStatusCode.Accepted)
 
             } else {
@@ -189,7 +188,7 @@ fun Route.userRouting() {
             call.respondText("Stock added correctly", status = HttpStatusCode.Created)
         }
 
-        get ("/{id?}/portfolios/{portfolioid?}/stocks") {
+        get("/{id?}/portfolios/{portfolioid?}/stocks") {
             val id_user_get_stocks = call.parameters["id"] ?: return@get call.respondText(
                 "Missing user id",
                 status = HttpStatusCode.BadRequest
@@ -200,18 +199,22 @@ fun Route.userRouting() {
                 status = HttpStatusCode.BadRequest
             )
 
+
             val matchingPortfolio = portfolios.find { it.id == id_portfolio && it.user_id == id_user_get_stocks }
+
+
             if (matchingPortfolio != null) {
                 val matchingStocks = stocks.filter { it.id_portfolio == matchingPortfolio.id }
                 call.respond(matchingStocks)
             } else {
-                return@get call.respondText (
+                return@get call.respondText(
                     "No portfolios for user with id $id_user_get_stocks",
-                    status = HttpStatusCode.NotFound)
+                    status = HttpStatusCode.NotFound
+                )
             }
         }
 
-        delete ("/{id?}/portfolios/{portfolioid?}/stocks/{stockid?}") {
+        delete("/{id?}/portfolios/{portfolioid?}/stocks/{stockid?}") {
             val user_id = call.parameters["id"] ?: return@delete call.respondText(
                 "Missing user id",
                 status = HttpStatusCode.BadRequest
@@ -228,65 +231,30 @@ fun Route.userRouting() {
 
             val matchingPortfolio = portfolios.find { it.id == id_portfolio && it.user_id == user_id }
             if (matchingPortfolio != null) {
-                val matchingStock = stocks.find { it.id_portfolio == matchingPortfolio.id && it.id == stock_id}
-                if (matchingStock != null){
+                val matchingStock = stocks.find { it.id_portfolio == matchingPortfolio.id && it.id == stock_id }
+                if (matchingStock != null) {
                     stocks.remove(matchingStock)
                     call.respondText("Stock removed from portfolio", status = HttpStatusCode.Accepted)
-                }else{
+                } else {
                     call.respondText("Stock not found in the specified portfolio", status = HttpStatusCode.NotFound)
                 }
 
             } else {
-                call.respondText("No portfolio found for the specified user and portfolio id", status = HttpStatusCode.NotFound)
+                call.respondText(
+                    "No portfolio found for the specified user and portfolio id",
+                    status = HttpStatusCode.NotFound
+                )
             }
         }
-
-
-        //Удаление акций при удалении портфеля
-        delete("/{id?}/portfolios/{portfolioid?}") {
-            val user_id = call.parameters["id"] ?: return@delete call.respondText(
-                "Missing user id",
-                status = HttpStatusCode.BadRequest
-            )
-            val id_portfolio = call.parameters["portfolioid"] ?: return@delete call.respondText(
-                "Missing portfolio id",
-                status = HttpStatusCode.BadRequest
-            )
-
-            val matchingPortfolio = portfolios.find { it.id == id_portfolio && it.user_id == user_id }
-            if (matchingPortfolio != null) {
-                stocks.removeAll { it.id_portfolio == matchingPortfolio.id }
-
-                if (portfolios.remove(matchingPortfolio)) {
-                    call.respondText("Portfolio removed correctly, along with associated stocks", status = HttpStatusCode.Accepted)
-                } else {
-                    call.respondText("Not Found", status = HttpStatusCode.NotFound)
-                }
-            } else {
-                call.respondText("Not Found", status = HttpStatusCode.NotFound)
-            }
-        }
-//
-//        //Удаление портфелей и акций при удалении пользователя
-//        delete("{id?}") {
-//            val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
-//            val removedUser = users.find { it.id == id }
-//
-//            if (removedUser != null) {
-//                portfolios.removeAll { it.user_id == id }
-//                stocks.removeAll { it.user_id == id }
-//
-//                if (users.remove(removedUser)) {
-//                    call.respondText("User removed correctly, along with associated portfolios and stocks", status = HttpStatusCode.Accepted)
-//                } else {
-//                    call.respondText("Not Found", status = HttpStatusCode.NotFound)
-//                }
-//            } else {
-//                call.respondText("Not Found", status = HttpStatusCode.NotFound)
-//            }
-//        }
-
     }
-
-
 }
+/*
+
+val customer: Customer = client.get("http://localhost:8080/customer/3").body()
+
+val response: HttpResponse = client.post("http://localhost:8080/customer") {
+    contentType(ContentType.Application.Json)
+    setBody(Customer(3, "Jet", "Brains"))
+}
+
+ */

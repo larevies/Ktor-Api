@@ -34,4 +34,5 @@ dependencies {
 
     implementation("io.ktor:ktor-server-auth:2.3.5")
     implementation("io.ktor:ktor-server-auth-jwt:2.3.5")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
 }
