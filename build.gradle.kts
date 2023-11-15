@@ -35,4 +35,15 @@ dependencies {
     implementation("io.ktor:ktor-server-auth:2.3.5")
     implementation("io.ktor:ktor-server-auth-jwt:2.3.5")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
+
+    implementation("org.postgresql:postgresql:42.2.23")
+
+    implementation("io.ktor:ktor-server-core:1.6.7")
+    implementation("io.ktor:ktor-server-netty:1.6.7")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31")
+    implementation("org.jetbrains.exposed:exposed-core:0.37.1")
+    implementation("org.jetbrains.exposed:exposed-dao:0.37.1")
+    implementation("org.postgresql:postgresql:42.2.23")
+
+
 }
