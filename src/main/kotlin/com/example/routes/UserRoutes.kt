@@ -18,27 +18,9 @@ import io.ktor.server.routing.delete
 import io.ktor.server.routing.route
 
 fun Route.userRouting() {
+    val connectionDB = ConnectionDB()
 
     route("/user") {
-
-
-        /**
-         * GET делает запрос на http сайтик и получает для нас какой-то ответ
-         *
-         * Пример работы GET:
-         * GET http://www.example.com/users  -  получаем всех юзеров
-         * GET http://www.example.com/users/12345  -  получаем юзера 12345
-         * ИЛИ
-         * GET http://www.example.com/customers?name=лера  -  то же самое что до этого
-         *
-         * Выше
-         * Первый GET получает список всех пользователей
-         * Второй GET получает конкретного пользователя
-         *
-         * Пример работы GET:
-         * curl -X GET --location "http://127.0.0.1:8080/user" -H "Accept: application/json"
-         */
-
 
         get {
             if (users.isNotEmpty()) {
@@ -63,36 +45,12 @@ fun Route.userRouting() {
         }
 
 
-        /**
-         * POST добавляет на сайт что-то новое.
-         * Этот POST добавляет одного нового пользователя
-         *
-         * Пример работы POST:
-         * curl -X POST --location "http://127.0.0.1:8080/user"  \
-         *     -H "Content-Type: application/json"  \
-         *     -d "{
-         *           \"id\": \"338828\",
-         *           \"firstName\": \"Лера\",
-         *           \"lastName\": \"Серебренникова\",
-         *           \"email\": \"лерин_имейл@майл.ру\"
-         *         }"
-         */
-
-
         post {
             val customer = call.receive<User>()
             users.add(customer)
+            connectionDB.addAUser(customer.password, customer.name, customer.email)
             call.respondText("User added correctly", status = HttpStatusCode.Created)
         }
-
-
-        /**
-         * DELETE удаляет что-то с сайта.
-         * Этот DELETE удаляет пользователя из списка "пользователи"
-         *
-         * Пример работы DELETE:
-         * curl -X DELETE --location "http://127.0.0.1:8080/customer/11111"
-         */
 
 
         delete("{id?}") {

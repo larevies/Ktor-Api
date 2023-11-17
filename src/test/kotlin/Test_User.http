@@ -5,7 +5,8 @@ Content-Type: application/json
   "id": "1",
   "name": "катя",
   "email": "катя@гугл.ком",
-  "password": "суперпароль"
+  "password": "суперпароль",
+  "create_date": "2023-10-20 11:02:20.900939"
 }
 
 

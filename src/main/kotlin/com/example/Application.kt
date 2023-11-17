@@ -8,9 +8,7 @@ fun main(args: Array<String>): Unit =
 
 fun Application.module() {
     configureRouting()
-
     configureSerialization()
-//    configureConnection()
 }
 
 
