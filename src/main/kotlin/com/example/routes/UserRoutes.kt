@@ -117,26 +117,6 @@ fun Route.userRouting() {
             }
         }
 
-        /*post("/login") {
-            val user = call.receive<User>()
-            val found = users.find { it.email == user.email && it.password == user.password }
-            if (found != null) {
-                id_user = user.id
-            }
-
-
-
-            // Check username and password
-            // ...
-            val token = JWT.create()
-            .withAudience(audience)
-            .withIssuer(issuer)
-            .withClaim("name", user.name)
-            .withExpiresAt(Date(System.currentTimeMillis() + 60000))
-            .sign(Algorithm.HMAC256(secret))
-        call.respond(hashMapOf("token" to token))
-        }*/
-
         post("/{id?}/portfolios") {
             val portfolio = call.receive<Portfolio>()
             portfolios.add(portfolio)

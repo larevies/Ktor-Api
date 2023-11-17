@@ -18,4 +18,15 @@ class ApplicationTest {
             assertEquals("our super cool and unfinished http api!", bodyAsText())
         }
     }
+
+    @Test
+    fun testHelp() = testApplication {
+        application {
+            configuteConnection()
+        }
+        client.get("/help").apply {
+            assertEquals(HttpStatusCode.OK, status)
+            assertEquals("[]", bodyAsText())
+        }
+    }
 }

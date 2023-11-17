@@ -3,6 +3,7 @@ package com.example.plugins
 
 import com.example.routes.companyRouting
 import com.example.routes.currencyRouting
+
 import com.example.routes.userRouting
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -17,5 +18,6 @@ fun Application.configureRouting() {
         userRouting()
         currencyRouting()
         companyRouting()
+
     }
 }
