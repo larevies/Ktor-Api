@@ -1,6 +1,8 @@
 package com.example.routes
 
 
+import com.example.database.connection.ConnectionDB
+import com.example.database.queries.UserQueries
 import com.example.modules.*
 
 
@@ -19,6 +21,7 @@ import io.ktor.server.routing.route
 
 fun Route.userRouting() {
     val connectionDB = ConnectionDB()
+    val userQueries = UserQueries()
 
     route("/user") {
 
@@ -48,7 +51,7 @@ fun Route.userRouting() {
         post {
             val customer = call.receive<User>()
             users.add(customer)
-            connectionDB.addAUser(customer.password, customer.name, customer.email)
+            userQueries.addUser(customer.password, customer.name, customer.email)
             call.respondText("User added correctly", status = HttpStatusCode.Created)
         }
 

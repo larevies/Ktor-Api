@@ -7,9 +7,10 @@ data class Stock(
     val id: String,
     val id_portfolio: String,
     val id_company: String,
+    val amount: Int,
     val name : String,
-    val current_price: Float,
-    val purchase_price: Float
+    val current_price: Double,
+    val purchase_price: Double
 )
 
 val stocks= mutableListOf<Stock>()
