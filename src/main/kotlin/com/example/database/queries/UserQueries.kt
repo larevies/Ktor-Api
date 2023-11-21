@@ -72,13 +72,13 @@ class UserQueries {
         }
     }
 
-
+//, create_date
     fun getUserByID(id : Int): List<User>? {
         val users = mutableListOf<User>()
         return try {
             val statement = connection?.createStatement()
             val resultSet = statement?.executeQuery(
-                """SELECT id, name, email, id_password, create_date 
+                """SELECT id, name, email, id_password, create_date
                 |                                      FROM public."ref_User" 
                 |                                      WHERE id = ${id} 
             """.trimMargin()

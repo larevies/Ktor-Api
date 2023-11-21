@@ -19,19 +19,16 @@ class PortfolioQueries {
         }
     }
 
-    fun addPortfolio(pName : String, idUser : String, price : Double, totalProfit : Double, profitability : Double,
-                     changeDay : Double) {
+    fun addPortfolio(pName : String, idUser : String) {
         try {
             val statement = connection?.createStatement()
             statement?.executeQuery(
-                """INSERT INTO public."Portfolio"(name, id_user, price, total_profit, 
-                        profitability, change_day)
-	                    VALUES ('${pName}', '${idUser}', ${price}, ${totalProfit}, ${profitability}, ${changeDay}); 
-                    """
+                """INSERT INTO public."Portfolio"(name, id_user)
+	                    VALUES ('${pName}', '${idUser}');"""
             )
         } catch (e: SQLException) {
-            println(queryError)
-            println("${e.message}")
+           // println(queryError)
+          //  println("${e.message}")
         }
     }
 
@@ -39,13 +36,18 @@ class PortfolioQueries {
         val portfolios = mutableListOf<Portfolio>()
         return try{
             val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, id_user, name FROM public."Portfolio"""")
+            val resultSet = statement?.executeQuery("""SELECT id, id_user, name, price, total_profit,
+                | profitability, change_day FROM public."Portfolio"""".trimMargin())
             resultSet?.let {
                 while (resultSet.next()) {
                     val portfolio = Portfolio(
                         id = resultSet.getString("id"),
                         user_id = resultSet.getString("id_user"),
-                        name = resultSet.getString("name")
+                        name = resultSet.getString("name"),
+                        price = resultSet.getDouble("price"),
+                        total_profit = resultSet.getDouble("total_profit"),
+                        profitability = resultSet.getDouble("profitability"),
+                        change_day = resultSet.getDouble("change_day")
                     )
                     portfolios.add(portfolio)
                 }
@@ -63,13 +65,18 @@ class PortfolioQueries {
         val portfolios = mutableListOf<Portfolio>()
         return try {
             val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, id_user, name FROM public."Portfolio" WHERE id = ${id} """)
+            val resultSet = statement?.executeQuery("""SELECT id, id_user, name, price, total_profit,
+                | profitability, change_day  FROM public."Portfolio" WHERE id = ${id} """)
             resultSet?.let {
                 while (resultSet.next()) {
                     val portfolio = Portfolio(
                         id = resultSet.getString("id"),
                         user_id = resultSet.getString("id_user"),
-                        name = resultSet.getString("name")
+                        name = resultSet.getString("name"),
+                        price = resultSet.getDouble("price"),
+                        total_profit = resultSet.getDouble("total_profit"),
+                        profitability = resultSet.getDouble("profitability"),
+                        change_day = resultSet.getDouble("change_day")
                     )
                     portfolios.add(portfolio)
                 }
@@ -87,13 +94,18 @@ class PortfolioQueries {
         val portfolios = mutableListOf<Portfolio>()
         return try {
             val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, id_user, name FROM public."Portfolio" WHERE id_user = ${userId} """)
+            val resultSet = statement?.executeQuery("""SELECT id, id_user, name, price, total_profit,
+                | profitability, change_day  FROM public."Portfolio" WHERE id_user = ${userId} """)
             resultSet?.let {
                 while (resultSet.next()) {
                     val portfolio = Portfolio(
                         id = resultSet.getString("id"),
                         user_id = resultSet.getString("id_user"),
-                        name = resultSet.getString("name")
+                        name = resultSet.getString("name"),
+                        price = resultSet.getDouble("price"),
+                        total_profit = resultSet.getDouble("total_profit"),
+                        profitability = resultSet.getDouble("profitability"),
+                        change_day = resultSet.getDouble("change_day")
                     )
                     portfolios.add(portfolio)
                 }
@@ -117,3 +129,4 @@ class PortfolioQueries {
         }
     }
 }
+

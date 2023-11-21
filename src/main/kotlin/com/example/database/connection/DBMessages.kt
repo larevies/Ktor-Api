@@ -23,7 +23,11 @@ fun portfolioString (portfolios : List<Portfolio>?) {
     portfolios?.forEach{ portfolio ->
         println("Id: ${portfolio.id}, " +
                 "Owner: ${portfolio.user_id}, " +
-                "Name: ${portfolio.name}")}
+                "Name: ${portfolio.name}, " +
+                "price: ${portfolio.price}, " +
+                "total profit: ${portfolio.total_profit}, " +
+                "profitability: ${portfolio.profitability}, " +
+                "change day: ${portfolio.change_day}")}
     println()
 }
 

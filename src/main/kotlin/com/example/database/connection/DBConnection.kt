@@ -23,22 +23,23 @@ fun main() {
         // получаем всё, что есть в бд
 
         userString(userQueries.getUsers())
-        // portfolioString(portfolioQueries.getPortfolios())
+        portfolioString(portfolioQueries.getPortfolios())
         // companyString(companyQueries.getCompanies())
         // stockString(stockQueries.getStocks())
 
 
         // добавляем в бд
 
-        // userQueries.addUser("iamcool", "sdff", "hii@sdfsdfsf.ru")
-        // portfolioQueries.addPortfolio("port", "5", 1515.0, 5656.0, 4545.5, 4545.0)
+        //userQueries.addUser("asd", "asd", "hii@asd.ru")
+         //portfolioQueries.addPortfolio("55", "1")
+
         // stockQueries.addStock("1", "1",  5, "st", 9898.0, 7878.0)
         // companyQueries.addCompany("asdf", 787845.0)
 
 
         // ищем с конкретикой (разные айди)
 
-        userString(userQueries.getUserByID(1))
+        //userString(userQueries.getUserByID(1))
 
         // portfolioString(portfolioQueries.getPortfolioByID(1))
         // portfolioString(portfolioQueries.getPortfolioByUser(1))

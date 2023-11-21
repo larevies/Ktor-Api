@@ -95,7 +95,7 @@ fun Route.userRouting() {
             val id = call.parameters["id"] ?: return@post call.respond(HttpStatusCode.BadRequest)
 
             // TODO change columns in DB or values in DC
-            portfolioQueries.addPortfolio(portfolio.name, portfolio.user_id)
+            portfolioQueries.addPortfolio(portfolio.name, id)
 
             portfolios.add(portfolio)
             call.respondText("Portfolio added correctly", status = HttpStatusCode.Created)
