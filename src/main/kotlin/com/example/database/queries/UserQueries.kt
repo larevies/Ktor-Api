@@ -6,17 +6,18 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
-const val successfulAuthorization = "Добро пожаловать в аккаунт!"
-const val failedAuthorization = "Пароль или имя пользователя указаны неверно."
+
+/***
+ * Следующий класс содержит функции, выполняющие SQL запросы в базу данных к таблице "Пользователи".
+ */
 
 class UserQueries {
 
     private var connection: Connection? = null
 
-
     init {
         try {
-            connection = DriverManager.getConnection(url, username, DBpassword)
+            connection = DriverManager.getConnection(url, username, DBPassword)
 
         } catch (e: SQLException) {
             println(errorMessage)
@@ -25,6 +26,9 @@ class UserQueries {
     }
 
 
+    /***
+     * Добавление пользователя в базу данных
+     */
     fun addUser(password : String, login : String, email : String) {
         try {
             val statement = connection?.createStatement()
@@ -43,9 +47,13 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
+        connection?.close()
     }
 
 
+    /***
+     * Получение всех пользователей из базы данных
+     */
     fun getUsers(): List<User>? {
         val users = mutableListOf<User>()
         return try {
@@ -70,9 +78,12 @@ class UserQueries {
             println("${e.message}")
             null
         }
+        connection?.close()
     }
 
-//, create_date
+    /***
+     * Получение пользователя по ID из базы данных
+     */
     fun getUserByID(id : Int): List<User>? {
         val users = mutableListOf<User>()
         return try {
@@ -102,8 +113,12 @@ class UserQueries {
             println("${e.message}")
             null
         }
+    connection?.close()
     }
 
+    /***
+     * Удаление пользователя по ID из базы данных
+     */
     fun deleteUser(id : Int) {
         try {
             val statement = connection?.createStatement()
@@ -112,9 +127,14 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
+        connection?.close()
     }
 
 
+    /***
+     * Авторизация пользователя
+     * (Сравнение введенного пароля и логина с паролем и логином из базы данных)
+     */
     fun authorization (userPassword:String, email: String) {
         try {
             val statement = connection?.createStatement()
@@ -144,9 +164,13 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
+        connection?.close()
     }
 
-
+    /***
+     * Обновление пароля
+     * (Замена старого пароля на новый в базе данных)
+     */
     fun updatePassword (newPassword: String, email: String) {
         try {
             val statement = connection?.createStatement()
@@ -164,5 +188,7 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
+        connection?.close()
     }
+
 }

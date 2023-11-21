@@ -6,12 +6,16 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
+
+/***
+ * Следующий класс содержит функции, выполняющие SQL запросы в базу данных к таблице "Портфели".
+ */
 class PortfolioQueries {
     private var connection: Connection? = null
 
     init {
         try {
-            connection = DriverManager.getConnection(url, username, DBpassword)
+            connection = DriverManager.getConnection(url, username, DBPassword)
 
         } catch (e: SQLException) {
             println(errorMessage)
@@ -19,6 +23,9 @@ class PortfolioQueries {
         }
     }
 
+    /***
+     * Добавление портфеля в базу данных
+     */
     fun addPortfolio(pName : String, idUser : String) {
         try {
             val statement = connection?.createStatement()
@@ -32,6 +39,9 @@ class PortfolioQueries {
         }
     }
 
+    /***
+     * Получение всех портфелей из базы данных
+     */
     fun getPortfolios(): List<Portfolio>? {
         val portfolios = mutableListOf<Portfolio>()
         return try{
@@ -61,6 +71,9 @@ class PortfolioQueries {
         }
     }
 
+    /***
+     * Получение портфеля из базы данных по ID
+     */
     fun getPortfolioByID(id : Int): List<Portfolio>? {
         val portfolios = mutableListOf<Portfolio>()
         return try {
@@ -90,6 +103,10 @@ class PortfolioQueries {
         }
     }
 
+    /***
+     * Получение портфелей из базы данных по ID пользователя
+     * (Пока нигде не используется)
+     */
     fun getPortfolioByUser(userId : Int): List<Portfolio>? {
         val portfolios = mutableListOf<Portfolio>()
         return try {
@@ -119,6 +136,9 @@ class PortfolioQueries {
         }
     }
 
+    /***
+     * Удаление портфеля из базы данных по ID
+     */
     fun deletePortfolio(id : Int) {
         try {
             val statement = connection?.createStatement()

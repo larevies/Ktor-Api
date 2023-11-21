@@ -2,6 +2,9 @@ package com.example.modules
 
 import kotlinx.serialization.Serializable
 
+/***
+ * Образ сущности "Акция" из базы данных
+ */
 @Serializable
 data class Stock(
     val id: String,

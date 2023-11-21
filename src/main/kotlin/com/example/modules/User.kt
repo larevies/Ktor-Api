@@ -2,7 +2,9 @@ package com.example.modules
 
 import kotlinx.serialization.Serializable
 
-
+/***
+ * Образ сущности "Пользователь" из базы данных
+ */
 @Serializable
 data class User(
     val id: String,
@@ -14,9 +16,4 @@ data class User(
 
 val users = mutableListOf<User>()
 
-
-/**
- * save user id once logged in?
- * refer to portfolios by id
- *
- */
+ // TODO save user id once logged in?

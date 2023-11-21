@@ -6,12 +6,16 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
+
+/***
+ * Следующий класс содержит функции, выполняющие SQL запросы в базу данных к таблице "Акции".
+ */
 class StockQueries {
     private var connection: Connection? = null
 
     init {
         try {
-            connection = DriverManager.getConnection(url, username, DBpassword)
+            connection = DriverManager.getConnection(url, username, DBPassword)
 
         } catch (e: SQLException) {
             println(errorMessage)
@@ -19,6 +23,9 @@ class StockQueries {
         }
     }
 
+    /***
+     * Добавление акции в базу данных
+     */
     fun addStock(idPortfolio : String, idCompany : String, amount: Int, name : String,
                  currentPrice : Double, purchasePrice : Double) {
         try {
@@ -35,6 +42,10 @@ class StockQueries {
             println("${e.message}")
         }
     }
+
+    /***
+     * Получение всех акций из базы данных
+     */
     fun getStocks(): List<Stock>? {
         val stocks = mutableListOf<Stock>()
         return try {
@@ -63,6 +74,10 @@ class StockQueries {
             null
         }
     }
+
+    /***
+     * Получение акции по ID из базы данных
+     */
     fun getStockByID(id : Int): List<Stock>? {
         val stocks = mutableListOf<Stock>()
         return try {
@@ -94,6 +109,10 @@ class StockQueries {
             null
         }
     }
+
+    /***
+     * Получение акции по ID портфеля из базы данных
+     */
     fun getStockByPortfolio(idPortfolio : Int): List<Stock>? {
         val stocks = mutableListOf<Stock>()
         return try {
@@ -125,6 +144,11 @@ class StockQueries {
             null
         }
     }
+
+    /***
+     * Получение акций из базы данных по ID компании
+     * (Пока нигде не используется)
+     */
     fun getStockByCompany(idCompany : Int): List<Stock>? {
         val stocks = mutableListOf<Stock>()
         return try {
@@ -157,6 +181,9 @@ class StockQueries {
         }
     }
 
+    /***
+     * Удаление акции из базы данных по ID
+     */
     fun deleteStock(id : Int) {
         try {
             val statement = connection?.createStatement()

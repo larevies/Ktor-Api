@@ -1,3 +1,19 @@
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+Content-Length: 150
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "катя",
+  "email": "катя@гугл.ком",
+  "password": "суперпароль",
+  "create_date": "2023-10-20 11:02:20.900939"
+}
+
+###
+
 GET http://127.0.0.1:8080/user/2/portfolios
 Accept: application/json
 Connection: Keep-Alive
@@ -755,24 +771,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 }
 
 <> 2023-11-07T155239.201.txt
-
-###
-
-POST http://127.0.0.1:8080/user
-Content-Type: application/json
-Content-Length: 116
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "id": "1",
-  "name": "катя",
-  "email": "катя@гугл.ком",
-  "password": "суперпароль"
-}
-
-<> 2023-11-07T155235.201.txt
 
 ###
 

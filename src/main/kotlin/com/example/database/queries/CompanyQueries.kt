@@ -6,12 +6,16 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
+
+/***
+ * Следующий класс содержит функции, выполняющие SQL запросы в базу данных к таблице "Компании".
+ */
 class CompanyQueries {
     private var connection: Connection? = null
 
     init {
         try {
-            connection = DriverManager.getConnection(url, username, DBpassword)
+            connection = DriverManager.getConnection(url, username, DBPassword)
 
         } catch (e: SQLException) {
             println(errorMessage)
@@ -19,6 +23,10 @@ class CompanyQueries {
         }
     }
 
+
+    /***
+     * Добавление компании в базу данных
+     */
     fun addCompany(name : String, currentPrice : Double) {
         try {
             val statement = connection?.createStatement()
@@ -33,6 +41,9 @@ class CompanyQueries {
         }
     }
 
+    /***
+     * Получение всех компаний из базы данных
+     */
     fun getCompanies(): List<Company>? {
         val companies = mutableListOf<Company>()
         return try{
@@ -41,7 +52,7 @@ class CompanyQueries {
             resultSet?.let {
                 while (resultSet.next()) {
                     val company = Company(
-                        id = resultSet.getString("id_company"),
+                        id = resultSet.getString("id"),
                         name = resultSet.getString("name"),
                         current_price = resultSet.getDouble("current_price")
                     )
@@ -57,6 +68,9 @@ class CompanyQueries {
         }
     }
 
+    /***
+     * Получение компании по ID
+     */
     fun getCompanyByID(id : Int): List<Company>? {
         val companies = mutableListOf<Company>()
         return try {
@@ -70,7 +84,7 @@ class CompanyQueries {
                     val company = Company(
                         id = resultSet.getString("id"),
                         name = resultSet.getString("name"),
-                        current_price = resultSet.getDouble("email")
+                        current_price = resultSet.getDouble("current_price")
                     )
                     companies.add(company)
                 }
@@ -84,6 +98,9 @@ class CompanyQueries {
         }
     }
 
+    /***
+     * Удаление компании из базы данных по ID
+     */
     fun deleteCompany(id : Int) {
         try {
             val statement = connection?.createStatement()

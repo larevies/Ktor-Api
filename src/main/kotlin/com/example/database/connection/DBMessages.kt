@@ -5,9 +5,17 @@ import com.example.modules.Portfolio
 import com.example.modules.Stock
 import com.example.modules.User
 
+/***
+ * Код из этого файла необходим для выведения информации на экран.
+ * Строковые константы выводятся при успехе/неудаче работы с базой данных.
+ * Функции необходимы для читаемого вывода полученной информации на экран.
+ */
+
 const val errorMessage = "Ошибка при установлении соединения с базой данных.\n"
 const val successMessage = "Соединение с базой данных установлено.\n"
 const val queryError = "Ошибка при выполнении запроса.\n"
+const val successfulAuthorization = "Добро пожаловать в аккаунт!"
+const val failedAuthorization = "Пароль или имя пользователя указаны неверно."
 
 fun userString (users : List<User>?) {
     users?.forEach{ user ->

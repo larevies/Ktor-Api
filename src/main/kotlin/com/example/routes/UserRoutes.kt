@@ -21,6 +21,10 @@ import io.ktor.server.routing.post
 import io.ktor.server.routing.delete
 import io.ktor.server.routing.route
 
+
+/***
+ * Маршруты для пользователей
+ */
 fun Route.userRouting() {
     val connectionDB = ConnectionDB()
     val userQueries = UserQueries()
@@ -29,6 +33,9 @@ fun Route.userRouting() {
 
     route("/user") {
 
+        /***
+         * Получение всех пользователей
+         */
         get {
             if (users.isNotEmpty()) {
                 call.respond(users)
@@ -39,6 +46,9 @@ fun Route.userRouting() {
         }
 
 
+        /***
+         * Получение пользователя по ID
+         */
         get("{id?}") {
             val id = call.parameters["id"] ?: return@get call.respondText(
                 "Missing id",
@@ -56,6 +66,9 @@ fun Route.userRouting() {
         }
 
 
+        /***
+         * Добавление нового пользователя
+         */
         post {
             val customer = call.receive<User>()
 
@@ -66,6 +79,9 @@ fun Route.userRouting() {
         }
 
 
+        /***
+         * Удаление пользователя по ID
+         */
         delete("{id?}") {
             val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
 
@@ -90,17 +106,22 @@ fun Route.userRouting() {
             }
         }
 
+        /***
+         * Добавление портфеля пользователю
+         */
         post("/{id?}/portfolios") {
             val portfolio = call.receive<Portfolio>()
             val id = call.parameters["id"] ?: return@post call.respond(HttpStatusCode.BadRequest)
 
-            // TODO change columns in DB or values in DC
             portfolioQueries.addPortfolio(portfolio.name, id)
 
             portfolios.add(portfolio)
             call.respondText("Portfolio added correctly", status = HttpStatusCode.Created)
         }
 
+        /***
+         * Получение всех портфелей пользователя по его ID
+         */
         get("/{id?}/portfolios") {
             val id = call.parameters["id"] ?: return@get call.respondText(
                 "Missing id",
@@ -120,6 +141,9 @@ fun Route.userRouting() {
             }
         }
 
+        /***
+         * Удаление портфеля по ID
+         */
         delete("/{id?}/portfolios/{portfolioid?}") {
             val user_id = call.parameters["id"] ?: return@delete call.respondText(
                 "Missing user id",
@@ -145,6 +169,10 @@ fun Route.userRouting() {
             }
         }
 
+
+        /***
+         * Добавление акции в портфель пользователя
+         */
         post("/{id?}/portfolios/{portfolioid?}/stocks") {
             val stock = call.receive<Stock>()
 
@@ -155,6 +183,10 @@ fun Route.userRouting() {
             call.respondText("Stock added correctly", status = HttpStatusCode.Created)
         }
 
+
+        /***
+         * Получение всех акций опреденного портфеля определенного пользователя
+         */
         get("/{id?}/portfolios/{portfolioid?}/stocks") {
             val id_user_get_stocks = call.parameters["id"] ?: return@get call.respondText(
                 "Missing user id",
@@ -166,7 +198,7 @@ fun Route.userRouting() {
                 status = HttpStatusCode.BadRequest
             )
 
-            stockQueries.getStocks()
+            stockQueries.getStockByPortfolio(id_portfolio.toInt())
 
             val matchingPortfolio = portfolios.find { it.id == id_portfolio && it.user_id == id_user_get_stocks }
 
@@ -182,6 +214,9 @@ fun Route.userRouting() {
             }
         }
 
+        /***
+         * Удаление акции из базы данных
+         */
         delete("/{id?}/portfolios/{portfolioid?}/stocks/{stockid?}") {
             val user_id = call.parameters["id"] ?: return@delete call.respondText(
                 "Missing user id",

@@ -14,12 +14,16 @@ import io.ktor.server.auth.*
 import io.ktor.server.auth.jwt.*
 import java.util.*
 
+
+/***
+ * Сериализация JSON
+ */
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
         json()
     }
 
-
+        /*
     val secret = environment.config.property("jwt.secret").getString()
     val issuer = environment.config.property("jwt.issuer").getString()
     val audience = environment.config.property("jwt.audience").getString()
@@ -46,7 +50,7 @@ fun Application.configureSerialization() {
                 call.respond(HttpStatusCode.Unauthorized, "Token is not valid or has expired")
             }
         }
-    }
+    }*/
 /*
     routing {
         post("/login") {

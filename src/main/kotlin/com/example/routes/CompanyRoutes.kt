@@ -8,11 +8,18 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 
+/***
+ * Маршруты для компаний
+ */
 fun Route.companyRouting() {
 
     val companyQueries = CompanyQueries()
 
     route("/company") {
+
+        /***
+         * Получение всех компаний
+         */
         get {
 
             companyQueries.getCompanies()
@@ -24,6 +31,9 @@ fun Route.companyRouting() {
             }
         }
 
+        /***
+         * Добавление компании
+         */
         post {
             val company = call.receive<Company>()
 
@@ -33,6 +43,9 @@ fun Route.companyRouting() {
             call.respondText("Company added correctly", status = HttpStatusCode.Created)
         }
 
+        /***
+         * Удаление компании по ID
+         */
         delete("{id?}") {
             val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
 
