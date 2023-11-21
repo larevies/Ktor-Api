@@ -83,4 +83,14 @@ class CompanyQueries {
             null
         }
     }
+
+    fun deleteCompany(id : Int) {
+        try {
+            val statement = connection?.createStatement()
+            statement?.executeQuery(""" DELETE FROM "Company" WHERE id = ${id} """)
+        } catch (e: SQLException) {
+            println(queryError)
+            println("${e.message}")
+        }
+    }
 }

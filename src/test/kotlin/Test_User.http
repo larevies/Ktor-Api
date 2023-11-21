@@ -18,7 +18,8 @@ Content-Type: application/json
   "id": "2",
   "name": "вася",
   "email": "вася@гугл.ком",
-  "password": "суперпуперпароль"
+  "password": "суперпуперпароль",
+  "create_date": "2023-10-20 11:02:20.900939"
 }
 
 ###
@@ -29,7 +30,8 @@ Content-Type: application/json
   "id": "3",
   "name": "михаил иванович",
   "email": "михаил1955@гугл.ком",
-  "password": "19551212"
+  "password": "19551212",
+  "create_date": "2023-10-20 11:02:20.900939"
 }
 
 

@@ -2,6 +2,8 @@ package com.example.routes
 
 
 import com.example.database.connection.ConnectionDB
+import com.example.database.queries.PortfolioQueries
+import com.example.database.queries.StockQueries
 import com.example.database.queries.UserQueries
 import com.example.modules.*
 
@@ -22,12 +24,15 @@ import io.ktor.server.routing.route
 fun Route.userRouting() {
     val connectionDB = ConnectionDB()
     val userQueries = UserQueries()
+    val portfolioQueries = PortfolioQueries()
+    val stockQueries = StockQueries()
 
     route("/user") {
 
         get {
             if (users.isNotEmpty()) {
                 call.respond(users)
+                userQueries.getUsers()
             } else {
                 call.respondText("No users found", status = HttpStatusCode.OK)
             }
@@ -39,6 +44,9 @@ fun Route.userRouting() {
                 "Missing id",
                 status = HttpStatusCode.BadRequest
             )
+
+            userQueries.getUserByID(id.toInt())
+
             val customer =
                 users.find { it.id == id } ?: return@get call.respondText(
                     "No user with id $id",
@@ -50,14 +58,18 @@ fun Route.userRouting() {
 
         post {
             val customer = call.receive<User>()
-            users.add(customer)
+
             userQueries.addUser(customer.password, customer.name, customer.email)
+
+            users.add(customer)
             call.respondText("User added correctly", status = HttpStatusCode.Created)
         }
 
 
         delete("{id?}") {
             val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
+
+            userQueries.deleteUser(id.toInt())
 
             val removedUser = users.find { it.id == id }
             if (removedUser != null) {
@@ -80,6 +92,11 @@ fun Route.userRouting() {
 
         post("/{id?}/portfolios") {
             val portfolio = call.receive<Portfolio>()
+            val id = call.parameters["id"] ?: return@post call.respond(HttpStatusCode.BadRequest)
+
+            // TODO change columns in DB or values in DC
+            portfolioQueries.addPortfolio(portfolio.name, portfolio.user_id)
+
             portfolios.add(portfolio)
             call.respondText("Portfolio added correctly", status = HttpStatusCode.Created)
         }
@@ -89,6 +106,9 @@ fun Route.userRouting() {
                 "Missing id",
                 status = HttpStatusCode.BadRequest
             )
+
+            portfolioQueries.getPortfolioByID(id.toInt())
+
             val matchingPortfolios = portfolios.filter { it.user_id == id }
             if (matchingPortfolios.isNotEmpty()) {
                 call.respond(matchingPortfolios)
@@ -110,6 +130,8 @@ fun Route.userRouting() {
                 status = HttpStatusCode.BadRequest
             )
 
+            portfolioQueries.deletePortfolio(id_portfolio.toInt())
+
             val matchingPortfolios = portfolios.filter { it.user_id == user_id }
             val removedPortfolios = matchingPortfolios.find { it.id == id_portfolio }
             if (removedPortfolios != null &&
@@ -125,6 +147,10 @@ fun Route.userRouting() {
 
         post("/{id?}/portfolios/{portfolioid?}/stocks") {
             val stock = call.receive<Stock>()
+
+            stockQueries.addStock(stock.id_portfolio, stock.id_portfolio,
+                stock.amount, stock.name, stock.current_price, stock.purchase_price)
+
             stocks.add(stock)
             call.respondText("Stock added correctly", status = HttpStatusCode.Created)
         }
@@ -140,6 +166,7 @@ fun Route.userRouting() {
                 status = HttpStatusCode.BadRequest
             )
 
+            stockQueries.getStocks()
 
             val matchingPortfolio = portfolios.find { it.id == id_portfolio && it.user_id == id_user_get_stocks }
 
@@ -170,6 +197,8 @@ fun Route.userRouting() {
                 status = HttpStatusCode.BadRequest
             )
 
+            stockQueries.getStockByID(stock_id.toInt())
+
             val matchingPortfolio = portfolios.find { it.id == id_portfolio && it.user_id == user_id }
             if (matchingPortfolio != null) {
                 val matchingStock = stocks.find { it.id_portfolio == matchingPortfolio.id && it.id == stock_id }
@@ -189,13 +218,3 @@ fun Route.userRouting() {
         }
     }
 }
-/*
-
-val customer: Customer = client.get("http://localhost:8080/customer/3").body()
-
-val response: HttpResponse = client.post("http://localhost:8080/customer") {
-    contentType(ContentType.Application.Json)
-    setBody(Customer(3, "Jet", "Brains"))
-}
-
- */

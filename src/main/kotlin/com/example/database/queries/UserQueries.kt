@@ -104,6 +104,16 @@ class UserQueries {
         }
     }
 
+    fun deleteUser(id : Int) {
+        try {
+            val statement = connection?.createStatement()
+            statement?.executeQuery(""" DELETE FROM "ref_User" WHERE id = ${id} """)
+        } catch (e: SQLException) {
+            println(queryError)
+            println("${e.message}")
+        }
+    }
+
 
     fun authorization (userPassword:String, email: String) {
         try {

@@ -156,4 +156,14 @@ class StockQueries {
             null
         }
     }
+
+    fun deleteStock(id : Int) {
+        try {
+            val statement = connection?.createStatement()
+            statement?.executeQuery(""" DELETE FROM "Assets" WHERE id = ${id} """)
+        } catch (e: SQLException) {
+            println(queryError)
+            println("${e.message}")
+        }
+    }
 }

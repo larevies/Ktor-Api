@@ -107,4 +107,13 @@ class PortfolioQueries {
         }
     }
 
+    fun deletePortfolio(id : Int) {
+        try {
+            val statement = connection?.createStatement()
+            statement?.executeQuery(""" DELETE FROM "Portfolio" WHERE id = ${id} """)
+        } catch (e: SQLException) {
+            println(queryError)
+            println("${e.message}")
+        }
+    }
 }
