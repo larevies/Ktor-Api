@@ -49,21 +49,40 @@ fun Route.userRouting() {
         /***
          * Получение пользователя по ID
          */
+
         get("{id?}") {
             val id = call.parameters["id"] ?: return@get call.respondText(
                 "Missing id",
                 status = HttpStatusCode.BadRequest
             )
 
-            userQueries.getUserByID(id.toInt())
+            val user = userQueries.getUserByID(id.toInt())
 
-            val customer =
-                users.find { it.id == id } ?: return@get call.respondText(
+            if (user != null) {
+                call.respond(user)
+            } else {
+                call.respondText(
                     "No user with id $id",
                     status = HttpStatusCode.NotFound
                 )
-            call.respond(customer)
+            }
         }
+
+//        get("{id?}") {
+//            val id = call.parameters["id"] ?: return@get call.respondText(
+//                "Missing id",
+//                status = HttpStatusCode.BadRequest
+//            )
+//
+//            userQueries.getUserByID(id.toInt())
+//
+//            val customer =
+//                users.find { it.id == id } ?: return@get call.respondText(
+//                    "No user with id $id",
+//                    status = HttpStatusCode.NotFound
+//                )
+//            call.respond(customer)
+//        }
 
 
         /***

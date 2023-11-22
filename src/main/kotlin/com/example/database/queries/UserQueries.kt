@@ -84,37 +84,39 @@ class UserQueries {
     /***
      * Получение пользователя по ID из базы данных
      */
-    fun getUserByID(id : Int): List<User>? {
-        val users = mutableListOf<User>()
-        return try {
+    fun getUserByID(id: Int): User? {
+        var user: User? = null
+
+        try {
             val statement = connection?.createStatement()
             val resultSet = statement?.executeQuery(
                 """SELECT id, name, email, id_password, create_date
-                |                                      FROM public."ref_User" 
-                |                                      WHERE id = ${id} 
+               FROM public."ref_User" 
+               WHERE id = $id 
             """.trimMargin()
             )
-            resultSet?.let {
-                while (resultSet.next()) {
-                    val user = User(
+
+            resultSet?.use {
+                if (resultSet.next()) {
+                    user = User(
                         id = resultSet.getString("id"),
                         name = resultSet.getString("name"),
                         email = resultSet.getString("email"),
                         password = resultSet.getString("id_password"),
                         create_date = resultSet.getString("create_date")
                     )
-                    users.add(user)
                 }
-                resultSet.close()
             }
-            users
         } catch (e: SQLException) {
             println(queryError)
             println("${e.message}")
-            null
+        } finally {
+            connection?.close()
         }
-    connection?.close()
+
+        return user
     }
+
 
     /***
      * Удаление пользователя по ID из базы данных

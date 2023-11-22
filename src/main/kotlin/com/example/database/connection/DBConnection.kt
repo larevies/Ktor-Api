@@ -48,7 +48,7 @@ fun main() {
          * в базе данных по ID
          */
 
-        userString(userQueries.getUserByID(1))
+        userQueries.getUserByID(1)
         portfolioString(portfolioQueries.getPortfolioByID(1))
         stockString(stockQueries.getStockByID(1))
         companyString(companyQueries.getCompanyByID(1))

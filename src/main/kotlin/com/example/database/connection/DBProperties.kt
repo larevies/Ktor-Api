@@ -7,7 +7,12 @@ package com.example.database.connection
  * DBPassword - пароль от базы данных PostgreSQL.
  */
 
-const val url = "jdbc:postgresql://localhost:5432/investment"
 const val username = "postgres"
-const val DBPassword = "lab2itmo"
-//const val DBPassword = "200319792003saa2003"
+
+//Лера
+//const val url = "jdbc:postgresql://localhost:5432/investment"
+//const val DBPassword = "lab2itmo"
+
+//Соня
+const val url = "jdbc:postgresql://localhost:5433/investment"
+const val DBPassword = "200319792003saa2003"
