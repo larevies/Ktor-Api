@@ -7,11 +7,11 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class User(
-    val id: String,
+    val id: String? = null,
     val name: String,
     val email: String,
     val password: String,
-    val create_date: String
+    val create_date: String? = null
 )
 
 val users = mutableListOf<User>()

@@ -2,11 +2,9 @@ POST http://127.0.0.1:8080/user
 Content-Type: application/json
 
 {
-  "id": "1",
-  "name": "катя",
-  "email": "катя@гугл.ком",
-  "password": "суперпароль",
-  "create_date": "2023-10-20 11:02:20.900939"
+  "name": "юзер1",
+  "email": "юююююю@гугл.ком",
+  "password": "зеер"
 }
 
 
@@ -15,40 +13,25 @@ POST http://127.0.0.1:8080/user
 Content-Type: application/json
 
 {
-  "id": "2",
-  "name": "вася",
-  "email": "вася@гугл.ком",
-  "password": "суперпуперпароль",
-  "create_date": "2023-10-20 11:02:20.900939"
+  "name": "юзер11",
+  "email": "апчих@гугл.ком",
+  "password": "кхекхе"
 }
-
-###
-POST http://127.0.0.1:8080/user
-Content-Type: application/json
-
-{
-  "id": "3",
-  "name": "михаил иванович",
-  "email": "михаил1955@гугл.ком",
-  "password": "19551212",
-  "create_date": "2023-10-20 11:02:20.900939"
-}
-
 
 ###
 GET http://127.0.0.1:8080/user
 Accept: application/json
 
 ###
-GET http://127.0.0.1:8080/user/1
+GET http://127.0.0.1:8080/user/35
 Accept: application/json
 
 ###
-GET http://127.0.0.1:8080/user/4
+GET http://127.0.0.1:8080/user/33
 Accept: application/json
 
 ###
-DELETE http://127.0.0.1:8080/user/2
+DELETE http://127.0.0.1:8080/user/33
 
 ###
 DELETE http://127.0.0.1:8080/user/1

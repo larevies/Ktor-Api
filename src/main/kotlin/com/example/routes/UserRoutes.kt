@@ -37,9 +37,9 @@ fun Route.userRouting() {
          * Получение всех пользователей
          */
         get {
-            if (users.isNotEmpty()) {
-                call.respond(users)
-                userQueries.getUsers()
+            val usersFromDB = userQueries.getUsers()
+            if (usersFromDB != null && usersFromDB.isNotEmpty()) {
+                call.respond(usersFromDB)
             } else {
                 call.respondText("No users found", status = HttpStatusCode.OK)
             }
@@ -50,21 +50,17 @@ fun Route.userRouting() {
          * Получение пользователя по ID
          */
 
-        get("{id?}") {
-            val id = call.parameters["id"] ?: return@get call.respondText(
-                "Missing id",
-                status = HttpStatusCode.BadRequest
-            )
-
-            val user = userQueries.getUserByID(id.toInt())
-
-            if (user != null) {
-                call.respond(user)
+        get("{id}") {
+            val id = call.parameters["id"]?.toIntOrNull()
+            if (id != null) {
+                val user = userQueries.getUserByID(id)
+                if (user != null) {
+                    call.respond(user)
+                } else {
+                    call.respondText("No user with id $id", status = HttpStatusCode.NotFound)
+                }
             } else {
-                call.respondText(
-                    "No user with id $id",
-                    status = HttpStatusCode.NotFound
-                )
+                call.respondText("Invalid ID", status = HttpStatusCode.BadRequest)
             }
         }
 

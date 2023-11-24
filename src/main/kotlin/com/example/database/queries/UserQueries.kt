@@ -47,7 +47,6 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
-        connection?.close()
     }
 
 
@@ -59,7 +58,7 @@ class UserQueries {
         return try {
             val statement = connection?.createStatement()
             val resultSet = statement?.executeQuery("""SELECT id, name, email, id_password, create_date FROM public."ref_User"""")
-            resultSet?.let {
+            resultSet?.use {
                 while (resultSet.next()) {
                     val user = User(
                         id = resultSet.getString("id"),
@@ -70,7 +69,6 @@ class UserQueries {
                     )
                     users.add(user)
                 }
-                resultSet.close()
             }
             users
         } catch (e: SQLException) {
@@ -78,23 +76,23 @@ class UserQueries {
             println("${e.message}")
             null
         }
-        connection?.close()
     }
 
     /***
      * Получение пользователя по ID из базы данных
      */
-    fun getUserByID(id: Int): User? {
+    fun getUserByID(id: Int?): User? {
         var user: User? = null
 
         try {
-            val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery(
+            val statement = connection?.prepareStatement(
                 """SELECT id, name, email, id_password, create_date
                FROM public."ref_User" 
-               WHERE id = $id 
-            """.trimMargin()
+               WHERE id = ?"""
             )
+            statement?.setInt(1, id ?: 0)
+
+            val resultSet = statement?.executeQuery()
 
             resultSet?.use {
                 if (resultSet.next()) {
@@ -108,15 +106,10 @@ class UserQueries {
                 }
             }
         } catch (e: SQLException) {
-            println(queryError)
-            println("${e.message}")
-        } finally {
-            connection?.close()
+            println("Error executing SQL query: ${e.message}")
         }
-
         return user
     }
-
 
     /***
      * Удаление пользователя по ID из базы данных
@@ -129,7 +122,6 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
-        connection?.close()
     }
 
 
@@ -166,7 +158,6 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
-        connection?.close()
     }
 
     /***
@@ -190,7 +181,6 @@ class UserQueries {
             println(queryError)
             println("${e.message}")
         }
-        connection?.close()
     }
 
 }
