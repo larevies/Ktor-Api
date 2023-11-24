@@ -8,7 +8,7 @@ import java.util.Date
  */
 @Serializable
 data class Company(
-    val id: String,
+    val id: String? = null,
     val name : String,
     val current_price : Double
 )

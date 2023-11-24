@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class Stock(
-    val id: String,
+    val id: String? = null,
     val id_portfolio: String,
     val id_company: String,
     val amount: Int,
