@@ -27,20 +27,20 @@ fun main() {
          * (Получают в принципе, выводят красиво ДЛЯ НАС)
          */
 
-        userString(userQueries.getUsers())
+        //userString(userQueries.getUsers())
         portfolioString(portfolioQueries.getPortfolios())
-        companyString(companyQueries.getCompanies())
-        stockString(stockQueries.getStocks())
+        //companyString(companyQueries.getCompanies())
+        //stockString(stockQueries.getStocks())
 
         /***
          * Следующие функции добавляют в базу данных новую информацию
          * (пользователей, портфели, компании, акции)
          */
 
-        userQueries.addUser("asd", "asd", "hii@asd.ru")
-        portfolioQueries.addPortfolio("55", "1")
-        companyQueries.addCompany("asdf", 787845.0)
-        stockQueries.addStock("1", "16",  5, "st", 9898.0, 7878.0)
+        //userQueries.addUser("asd", "asd", "hii@asd.ru")
+        //portfolioQueries.addPortfolio("55", "1")
+        //companyQueries.addCompany("asdf", 787845.0)
+        //stockQueries.addStock("1", "16",  5, "st", 9898.0, 7878.0)
 
         /***
          * Следующие функции выполняют поиск объектов
@@ -48,10 +48,10 @@ fun main() {
          * в базе данных по ID
          */
 
-        userQueries.getUserByID(1)
-        portfolioString(portfolioQueries.getPortfolioByID(1))
-        stockString(stockQueries.getStockByID(1))
-        companyString(companyQueries.getCompanyByID(1))
+        userQueries.getUserByID(18)
+        portfolioQueries.getPortfolioByID(22)
+        //stockString(stockQueries.getStockByID(1))
+        //companyString(companyQueries.getCompanyByID(1))
 
         /***
          * Следующие функции выполняют авторизацию пользователя
@@ -59,8 +59,8 @@ fun main() {
          * и обновление пароля
          */
 
-        userQueries.authorization("iamcool", "hii@mail.ru")
-        userQueries.updatePassword("evencooler", "hii@mail.ru")
+        //userQueries.authorization("iamcool", "hii@mail.ru")
+        //userQueries.updatePassword("evencooler", "hii@mail.ru")
 
         /***
          * Следующие функции выполняют удаление объектов
@@ -68,10 +68,11 @@ fun main() {
          * из базы данных по ID
          */
 
-        userQueries.deleteUser(1)
-        portfolioQueries.deletePortfolio(1)
-        stockQueries.deleteStock(1)
-        companyQueries.deleteCompany(1)
+        portfolioQueries.getPortfolioByUser(2)
+        //userQueries.deleteUser(1)
+        //portfolioQueries.deletePortfolio(1)
+        //stockQueries.deleteStock(1)
+        //companyQueries.deleteCompany(1)
 
     } else {
         println(errorMessage)

@@ -1,22 +1,28 @@
 ###
-POST http://127.0.0.1:8080/user/1/portfolios
+POST http://127.0.0.1:8080/user/2/portfolios
 Content-Type: application/json
 
 {
-  "id": "5",
-  "user_id": "1",
-  "name": "first"
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
 }
 
 
 ###
-POST http://127.0.0.1:8080/user/1/portfolios
+POST http://127.0.0.1:8080/user/2/portfolios
 Content-Type: application/json
 
 {
-  "id": "1",
-  "user_id": "1",
-  "name": "second"
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
 }
 
 
@@ -31,4 +37,4 @@ Accept: application/json
 
 
 ###
-DELETE http://127.0.0.1:8080/user/1/portfolios/1
+DELETE http://127.0.0.1:8080/user/2/portfolios/25

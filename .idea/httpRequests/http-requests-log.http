@@ -1,78 +1,390 @@
-GET http://127.0.0.1:8080/user/35
+GET http://127.0.0.1:8080/user/2/portfolios/26
 Accept: application/json
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T192310.404.txt
 
 ###
 
-DELETE http://127.0.0.1:8080/user/33
+DELETE http://127.0.0.1:8080/user/2/portfolios/25
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T192217.404.txt
+<> 2023-12-03T000205.202.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/2/portfolios/24
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-03T000200.404.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-03T000154.200.json
+
+###
+
+POST http://127.0.0.1:8080/user/2/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+<> 2023-12-03T000147-1.201.txt
+
+###
+
+POST http://127.0.0.1:8080/user/2/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+<> 2023-12-03T000147.201.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/18
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T235007.404.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/18
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T235001.202.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/2/portfolios/24
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T234809.202.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/2/portfolios/24
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T234756.202.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/2/portfolios/24
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T234749.202.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T234744.200.json
+
+###
+
+POST http://127.0.0.1:8080/user/2/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+<> 2023-12-02T234739.201.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/2/portfolios/23
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T234053.404.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T234035.200.json
+
+###
+
+GET http://127.0.0.1:8080/user/1/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T234035.200.txt
+
+###
+
+POST http://127.0.0.1:8080/user/2/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+<> 2023-12-02T234022.201.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T233703.200.json
+
+###
+
+GET http://127.0.0.1:8080/user/1/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T233700.200.txt
 
 ###
 
 GET http://127.0.0.1:8080/user
 Accept: application/json
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T192203.200.json
+<> 2023-12-02T233656.200.json
 
 ###
 
-DELETE http://127.0.0.1:8080/user/35
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T192155.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/33
+GET http://127.0.0.1:8080/user/2
 Accept: application/json
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T192146.200.json
+<> 2023-12-02T233653.200.json
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T233645.200.json
+
+###
+
+GET http://127.0.0.1:8080/user/1/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T233644.200.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T233637.200.json
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T232222.200.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T231549.200.txt
+
+###
+
+GET http://127.0.0.1:8080/user/1/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T231543.200.txt
+
+###
+
+POST http://127.0.0.1:8080/user/2/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+<> 2023-12-02T231532.201.txt
+
+###
+
+POST http://127.0.0.1:8080/user/2/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+<> 2023-12-02T231524.201.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T220025.404.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T215423.200.json
+
+###
+
+GET http://127.0.0.1:8080/user/6
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-02T214734.200.json
 
 ###
 
 GET http://127.0.0.1:8080/user/35
 Accept: application/json
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T192130.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/34
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T192123.404.txt
+<> 2023-12-02T214729.404.txt
 
 ###
 
 GET http://127.0.0.1:8080/user
 Accept: application/json
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T192110.200.json
+<> 2023-12-02T214707.200.json
 
 ###
 
@@ -80,7 +392,7 @@ POST http://127.0.0.1:8080/user
 Content-Type: application/json
 Content-Length: 97
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 {
@@ -89,71 +401,7 @@ Accept-Encoding: br,deflate,gzip,x-gzip
   "password": "кхекхе"
 }
 
-<> 2023-11-24T192107.201.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T192050.200.json
-
-###
-
-POST http://127.0.0.1:8080/user
-Content-Type: application/json
-Content-Length: 94
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "name": "юзер1",
-  "email": "юююююю@гугл.ком",
-  "password": "зеер"
-}
-
-<> 2023-11-24T192047.201.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T192029.200.json
-
-###
-
-POST http://127.0.0.1:8080/user
-Content-Type: application/json
-Content-Length: 94
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "name": "юзер1",
-  "email": "юююююю@гугл.ком",
-  "password": "зеер"
-}
-
-<> 2023-11-24T192025.201.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191859.200.txt
+<> 2023-12-02T214540.201.txt
 
 ###
 
@@ -161,7 +409,7 @@ POST http://127.0.0.1:8080/user
 Content-Type: application/json
 Content-Length: 97
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 {
@@ -170,7 +418,24 @@ Accept-Encoding: br,deflate,gzip,x-gzip
   "password": "кхекхе"
 }
 
-<> 2023-11-24T191856.201.txt
+<> 2023-12-02T214537.201.txt
+
+###
+
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+Content-Length: 97
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "юзер11",
+  "email": "апчих@гугл.ком",
+  "password": "кхекхе"
+}
+
+<> 2023-12-02T214356.201.txt
 
 ###
 
@@ -178,7 +443,7 @@ POST http://127.0.0.1:8080/user
 Content-Type: application/json
 Content-Length: 94
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 {
@@ -187,362 +452,195 @@ Accept-Encoding: br,deflate,gzip,x-gzip
   "password": "зеер"
 }
 
-<> 2023-11-24T191854.201.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191230.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191227.200.json
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191149.200.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191107.200.json
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191054.200.txt
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191051.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191033.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T191001.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190938.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190746.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190729.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/30
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190722.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/30
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190607.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190552.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190537.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/30
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190531.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T190503.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/31
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T185958.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T185951.200.txt
+<> 2023-12-02T214343.201.txt
 
 ###
 
 POST http://127.0.0.1:8080/user
 Content-Type: application/json
-Content-Length: 111
+Content-Length: 150
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 {
-  "name": "дрппа",
-  "email": "дпррпма@гугл.ком",
-  "password": "дапморароль"
+  "name": "катя",
+  "email": "катя@гугл.ком",
+  "password": "суперпароль",
+  "create_date": "2023-10-20 11:02:20.900939"
 }
 
-<> 2023-11-24T185949.201.txt
+###
+
+GET http://127.0.0.1:8080/user/2/portfolios
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-21T154529.404.txt
 
 ###
 
-GET http://127.0.0.1:8080/user/30
+GET http://127.0.0.1:8080/user/1/portfolios
 Accept: application/json
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T185705.404.txt
+<> 2023-11-21T154525.200.json
 
 ###
 
-GET http://127.0.0.1:8080/user
-Accept: application/json
+POST http://127.0.0.1:8080/user/1/portfolios
+Content-Type: application/json
+Content-Length: 53
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T185629.200.txt
+{
+  "id": "1",
+  "user_id": "1",
+  "name": "second"
+}
+
+<> 2023-11-21T154518.201.txt
 
 ###
 
-GET http://127.0.0.1:8080
-Accept: application/json
+POST http://127.0.0.1:8080/user/1/portfolios
+Content-Type: application/json
+Content-Length: 52
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T185619.200.txt
+{
+  "id": "5",
+  "user_id": "1",
+  "name": "first"
+}
 
-###
-
-GET http://127.0.0.1:8080
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T185611.200.txt
-
-###
-
-GET http://127.0.0.1:8080/user/30/
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-###
-
-GET http://127.0.0.1:8080/user/30
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T185417.404.txt
+<> 2023-11-21T154512.201.txt
 
 ###
 
 GET http://127.0.0.1:8080/user
 Accept: application/json
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T185319.200.txt
-
-###
-
-GET http://127.0.0.1:8080/user/
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T185312.200.txt
+<> 2023-11-21T100309.200.json
 
 ###
 
 POST http://127.0.0.1:8080/user
 Content-Type: application/json
-Content-Length: 89
+Content-Length: 178
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 {
-  "name": "да",
-  "email": "да@гугл.ком",
-  "password": "дапароль"
+  "id": "3",
+  "name": "михаил иванович",
+  "email": "михаил1955@гугл.ком",
+  "password": "19551212",
+  "create_date": "2023-10-20 11:02:20.900939"
 }
 
-<> 2023-11-24T185310.201.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-11-24T185007.200.json
+<> 2023-11-21T100304.201.txt
 
 ###
 
 POST http://127.0.0.1:8080/user
 Content-Type: application/json
-Content-Length: 89
+Content-Length: 173
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 {
-  "name": "ха",
-  "email": "ха@гугл.ком",
-  "password": "хапароль"
+  "id": "2",
+  "name": "вася",
+  "email": "вася@гугл.ком",
+  "password": "суперпуперпароль",
+  "create_date": "2023-10-20 11:02:20.900939"
 }
 
-<> 2023-11-24T185003.201.txt
+<> 2023-11-21T100259.201.txt
 
 ###
 
-GET http://127.0.0.1:8080/user/
-Accept: application/json
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+Content-Length: 131
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id": "3",
+  "name": "михаил иванович",
+  "email": "михаил1955@гугл.ком",
+  "password": "19551212"
+}
 
 ###
 
-GET http://127.0.0.1:8080/user
-Accept: application/json
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+Content-Length: 126
 Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
-<> 2023-11-24T184524.200.txt
+{
+  "id": "2",
+  "name": "вася",
+  "email": "вася@гугл.ком",
+  "password": "суперпуперпароль"
+}
+
+###
+
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+Content-Length: 163
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id": "1",
+  "name": "катя",
+  "email": "катя@гугл.ком",
+  "password": "суперпароль",
+  "create_date": "2023-10-20 11:02:20.900939"
+}
+
+<> 2023-11-21T100236.201.txt
+
+###
+
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+Content-Length: 163
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id": "1",
+  "name": "катя",
+  "email": "катя@гугл.ком",
+  "password": "суперпароль",
+  "create_date": "2023-10-20 11:02:20.900939"
+}
+
+<> 2023-11-17T111835.201.txt
 
 ###
 
