@@ -63,7 +63,6 @@ fun Route.userRouting() {
 
             userQueries.addUser(customer.password, customer.name, customer.email)
 
-            users.add(customer)
             call.respondText("User added correctly", status = HttpStatusCode.Created)
         }
 
@@ -74,33 +73,12 @@ fun Route.userRouting() {
         delete("{id?}") {
             val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
 
-            //userQueries.deleteUser(id.toInt())
-
             if (userQueries.getUserByID(id.toInt()) != null) {
                 userQueries.deleteUser(id.toInt())
                 call.respondText("User removed correctly", status = HttpStatusCode.Accepted)
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
             }
-
-
-
-        /*val removedUser = users.find { it.id == id }
-            if (removedUser != null) {
-                users.remove(removedUser)
-
-                val removedPortfolios = portfolios.filter { it.user_id == id }
-                portfolios.removeAll { it.user_id == id }
-
-                val removedStocks = stocks.filter { it.id_portfolio in removedPortfolios.map { it.id } }
-
-                for (stock in removedStocks) {
-                    stocks.removeAll { it.id_portfolio == stock.id }
-                }
-                call.respondText("User removed correctly", status = HttpStatusCode.Accepted)
-            } else {
-                call.respondText("Not Found", status = HttpStatusCode.NotFound)
-            }*/
         }
     }
 }

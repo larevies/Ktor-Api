@@ -88,7 +88,7 @@ class UserQueries {
             val statement = connection?.prepareStatement(
                 """SELECT id, name, email, id_password, create_date
                FROM public."ref_User" 
-               WHERE id = ?"""
+               WHERE id = ? """
             )
             statement?.setInt(1, id ?: 0)
 

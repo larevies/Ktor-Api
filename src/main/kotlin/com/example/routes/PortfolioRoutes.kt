@@ -2,8 +2,6 @@ package com.example.routes
 
 import com.example.database.queries.PortfolioQueries
 import com.example.modules.Portfolio
-import com.example.modules.portfolios
-import com.example.modules.stocks
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -35,18 +33,32 @@ fun Route.portfolioRouting() {
         }
 
         /***
+         * Вывод конкретного портфеля
+         */
+        get("/{id?}/portfolios/{portfolioid?}") {
+            val portfolioId = call.parameters["portfolioid"]?.toIntOrNull()
+            if (portfolioId != null) {
+                val portfolio = portfolioQueries.getPortfolioByID(portfolioId)
+                if (portfolio != null) {
+                    call.respond(portfolio)
+                } else {
+                    call.respondText("No portfolio with id $portfolioId", status = HttpStatusCode.NotFound)
+                }
+            } else {
+                call.respondText("Invalid ID", status = HttpStatusCode.BadRequest)
+            }
+        }
+
+        /***
          * Добавление портфеля пользователю
          */
         post("/{id?}/portfolios") {
             val portfolio = call.receive<Portfolio>()
-            //val id = call.parameters["id"]?.toIntOrNull()
 
             portfolioQueries.addPortfolio(portfolio.user_id, portfolio.name,
                                         portfolio.price, portfolio.total_profit,
                                         portfolio.profitability, portfolio.change_day)
 
-
-            portfolios.add(portfolio)
             call.respondText("Portfolio added correctly", status = HttpStatusCode.Created)
         }
 
@@ -54,10 +66,7 @@ fun Route.portfolioRouting() {
          * Удаление портфеля по ID
          */
         delete("/{id?}/portfolios/{portfolioid?}") {
-            //val user_id = call.parameters["id"] ?: return@delete call.respondText(
-            //    "Missing user id",
-            //    status = HttpStatusCode.BadRequest
-            //)
+
             val portfolio_id = call.parameters["portfolioid"] ?: return@delete call.respondText(
                 "Missing portfolio id",
                 status = HttpStatusCode.BadRequest
@@ -69,20 +78,6 @@ fun Route.portfolioRouting() {
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)
             }
-
-
-
-            /*val matchingPortfolios = portfolios.filter { it.user_id == user_id }
-            val removedPortfolios = matchingPortfolios.find { it.id == portfolio_id }
-            if (removedPortfolios != null &&
-                portfolios.removeIf { it.id == portfolio_id } &&
-                stocks.removeIf { it.id_portfolio == portfolio_id }
-            ) {
-                call.respondText("Portfolio removed correctly", status = HttpStatusCode.Accepted)
-
-            } else {
-                call.respondText("Not Found", status = HttpStatusCode.NotFound)
-            }*/
         }
     }
 }

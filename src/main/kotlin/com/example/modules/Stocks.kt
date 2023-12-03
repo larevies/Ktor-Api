@@ -15,5 +15,3 @@ data class Stock(
     val current_price: Double,
     val purchase_price: Double
 )
-
-val stocks= mutableListOf<Stock>()

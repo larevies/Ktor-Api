@@ -11,6 +11,7 @@ import java.sql.SQLException
  * Следующий класс содержит функции, выполняющие SQL запросы в базу данных к таблице "Акции".
  */
 class StockQueries {
+
     private var connection: Connection? = null
 
     init {
@@ -43,53 +44,27 @@ class StockQueries {
         }
     }
 
-    /***
-     * Получение всех акций из базы данных
-     */
-    fun getStocks(): List<Stock>? {
-        val stocks = mutableListOf<Stock>()
-        return try {
-            val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, id_portfolio, id_company, amount, name, current_price, 
-                | purchase_price FROM public."Assets"""".trimMargin())
-            resultSet?.let {
-                while (resultSet.next()) {
-                    val stock = Stock(
-                        id = resultSet.getString("id"),
-                        id_portfolio = resultSet.getString("id_portfolio"),
-                        id_company = resultSet.getString("id_company"),
-                        amount = resultSet.getInt("amount"),
-                        name = resultSet.getString("name"),
-                        current_price = resultSet.getDouble("current_price"),
-                        purchase_price = resultSet.getDouble("purchase_price")
-                    )
-                    stocks.add(stock)
-                }
-                resultSet.close()
-            }
-            stocks
-        } catch (e: SQLException) {
-            println(queryError)
-            println("${e.message}")
-            null
-        }
-    }
 
     /***
      * Получение акции по ID из базы данных
      */
-    fun getStockByID(id : Int): List<Stock>? {
-        val stocks = mutableListOf<Stock>()
-        return try {
-            val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, id_portfolio, id_company, amount,
-                |                                      name, current_price, purchase_price
-	                                                   FROM public."Assets"
-                |                                      WHERE id = ${id}
-            """.trimMargin())
-            resultSet?.let {
-                while (resultSet.next()) {
-                    val stock = Stock(
+    fun getStockByID(id : Int?): Stock? {
+        var stock: Stock? = null
+
+        try {
+            val statement = connection?.prepareStatement(
+                """SELECT id, id_portfolio, id_company, amount, name, 
+                    |current_price, purchase_price 
+                    |FROM public."Assets" 
+                    |WHERE id = ? """.trimMargin())
+
+            statement?.setInt(1, id ?: 0)
+
+            val resultSet = statement?.executeQuery()
+
+            resultSet?.use {
+                if (resultSet.next()) {
+                    stock = Stock(
                         id = resultSet.getString("id"),
                         id_portfolio = resultSet.getString("id_portfolio"),
                         id_company = resultSet.getString("id_company"),
@@ -98,16 +73,16 @@ class StockQueries {
                         current_price = resultSet.getDouble("current_price"),
                         purchase_price = resultSet.getDouble("purchase_price")
                     )
-                    stocks.add(stock)
+                    //stocks.add(stock)
                 }
-                resultSet.close()
+                //resultSet.close()
             }
-            stocks
+            //stocks
         } catch (e: SQLException) {
             println(queryError)
             println("${e.message}")
-            null
         }
+        return stock
     }
 
     /***
@@ -145,41 +120,6 @@ class StockQueries {
         }
     }
 
-    /***
-     * Получение акций из базы данных по ID компании
-     * (Пока нигде не используется)
-     */
-    fun getStockByCompany(idCompany : Int): List<Stock>? {
-        val stocks = mutableListOf<Stock>()
-        return try {
-            val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, id_portfolio, id_company, amount,
-                |                                      name, current_price, purchase_price
-	                                                   FROM public."Assets"
-                |                                      WHERE id_company = ${idCompany}
-            """.trimMargin())
-            resultSet?.let {
-                while (resultSet.next()) {
-                    val stock = Stock(
-                        id = resultSet.getString("id"),
-                        id_portfolio = resultSet.getString("id_portfolio"),
-                        id_company = resultSet.getString("id_company"),
-                        amount = resultSet.getInt("amount"),
-                        name = resultSet.getString("name"),
-                        current_price = resultSet.getDouble("current_price"),
-                        purchase_price = resultSet.getDouble("purchase_price")
-                    )
-                    stocks.add(stock)
-                }
-                resultSet.close()
-            }
-            stocks
-        } catch (e: SQLException) {
-            println(queryError)
-            println("${e.message}")
-            null
-        }
-    }
 
     /***
      * Удаление акции из базы данных по ID

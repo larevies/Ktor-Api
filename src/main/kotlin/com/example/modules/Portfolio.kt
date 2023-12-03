@@ -16,5 +16,4 @@ data class Portfolio (
     val change_day: Double
 )
 
-val portfolios = mutableListOf<Portfolio>()
 

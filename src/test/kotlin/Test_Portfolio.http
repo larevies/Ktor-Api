@@ -17,7 +17,7 @@ POST http://127.0.0.1:8080/user/2/portfolios
 Content-Type: application/json
 
 {
-  "user_id": "2",
+  "user_id": "6",
   "name": "tink",
   "price": 231.3,
   "total_profit": 2423.1,
@@ -37,4 +37,9 @@ Accept: application/json
 
 
 ###
-DELETE http://127.0.0.1:8080/user/2/portfolios/25
+GET http://127.0.0.1:8080/user/2/portfolios/26
+Accept: application/json
+
+
+###
+DELETE http://127.0.0.1:8080/user/2/portfolios/27

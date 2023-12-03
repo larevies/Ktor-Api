@@ -77,12 +77,14 @@ class PortfolioQueries {
     /***
      * Получение портфеля из базы данных по ID
      */
-    fun getPortfolioByID(id : Int): Portfolio? {
+    fun getPortfolioByID(id : Int?): Portfolio? {
         var portfolio: Portfolio? = null
 
         try {
             val statement = connection?.prepareStatement("""SELECT id, id_user, name, price, 
-                total_profit, profitability, change_day  FROM public."Portfolio" WHERE id = ${id} """)
+                total_profit, profitability, change_day FROM public."Portfolio" WHERE id = ? """)
+
+            statement?.setInt(1, id ?: 0)
 
             val resultSet = statement?.executeQuery()
 
@@ -156,30 +158,3 @@ class PortfolioQueries {
         }
     }
 }
-
-/*return try {
-            val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, id_user, name, price, total_profit,
-                | profitability, change_day  FROM public."Portfolio" WHERE id_user = ${userId} """)
-            resultSet?.let {
-                while (resultSet.next()) {
-                    val portfolio = Portfolio(
-                        id = resultSet.getString("id"),
-                        user_id = resultSet.getString("id_user"),
-                        name = resultSet.getString("name"),
-                        price = resultSet.getDouble("price"),
-                        total_profit = resultSet.getDouble("total_profit"),
-                        profitability = resultSet.getDouble("profitability"),
-                        change_day = resultSet.getDouble("change_day")
-                    )
-                    portfolios.add(portfolio)
-                }
-                resultSet.close()
-            }
-            portfolios
-        } catch (e: SQLException) {
-            println(queryError)
-            println("${e.message}")
-            null
-        }
-        }*/

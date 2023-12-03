@@ -21,13 +21,29 @@ fun Route.companyRouting() {
          * Получение всех компаний
          */
         get {
-
-            companyQueries.getCompanies()
-
-            if (companies.isNotEmpty()) {
-                call.respond(companies)
+            val companiesFromDB = companyQueries.getCompanies()
+            if (companiesFromDB != null && companiesFromDB.isNotEmpty()) {
+                call.respond(companiesFromDB)
             } else {
                 call.respondText("No companies found", status = HttpStatusCode.OK)
+            }
+        }
+
+        /***
+         * Получение конкретной компании по ID
+         */
+
+        get("{id}") {
+            val id = call.parameters["id"]?.toIntOrNull()
+            if (id != null) {
+                val company = companyQueries.getCompanyByID(id)
+                if (company != null) {
+                    call.respond(company)
+                } else {
+                    call.respondText("No company with id $id", status = HttpStatusCode.NotFound)
+                }
+            } else {
+                call.respondText("Invalid ID", status = HttpStatusCode.BadRequest)
             }
         }
 
@@ -39,7 +55,7 @@ fun Route.companyRouting() {
 
             companyQueries.addCompany(company.name,company.current_price)
 
-            companies.add(company)
+            //companies.add(company)
             call.respondText("Company added correctly", status = HttpStatusCode.Created)
         }
 
@@ -49,12 +65,8 @@ fun Route.companyRouting() {
         delete("{id?}") {
             val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest)
 
-            companyQueries.deleteCompany(id.toInt())
-
-            val removedCompany = companies.find { it.id == id }
-            if (removedCompany != null) {
-                stocks.removeAll { it.id_company == id }
-                companies.remove(removedCompany)
+            if (companyQueries.getCompanyByID(id.toInt()) != null) {
+                companyQueries.deleteCompany(id.toInt())
                 call.respondText("Company removed correctly", status = HttpStatusCode.Accepted)
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)

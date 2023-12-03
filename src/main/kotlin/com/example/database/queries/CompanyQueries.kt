@@ -11,6 +11,7 @@ import java.sql.SQLException
  * Следующий класс содержит функции, выполняющие SQL запросы в базу данных к таблице "Компании".
  */
 class CompanyQueries {
+
     private var connection: Connection? = null
 
     init {
@@ -71,31 +72,32 @@ class CompanyQueries {
     /***
      * Получение компании по ID
      */
-    fun getCompanyByID(id : Int): List<Company>? {
-        val companies = mutableListOf<Company>()
-        return try {
-            val statement = connection?.createStatement()
-            val resultSet = statement?.executeQuery("""SELECT id, name, current_price 
-                |                                      FROM "Company" 
-                |                                      WHERE id = ${id} 
-            """.trimMargin())
-            resultSet?.let {
-                while (resultSet.next()) {
-                    val company = Company(
+    fun getCompanyByID(id : Int): Company? {
+        var company: Company? = null
+
+        try {
+            val statement = connection?.prepareStatement(
+                """SELECT id, name, current_price FROM public."Company" WHERE id = ? """
+            )
+
+            statement?.setInt(1, id ?: 0)
+
+            val resultSet = statement?.executeQuery()
+
+            resultSet?.use {
+                if (resultSet.next()) {
+                    company = Company(
                         id = resultSet.getString("id"),
                         name = resultSet.getString("name"),
                         current_price = resultSet.getDouble("current_price")
                     )
-                    companies.add(company)
                 }
-                resultSet.close()
             }
-            companies
         } catch (e: SQLException) {
             println(queryError)
             println("${e.message}")
-            null
         }
+        return company
     }
 
     /***

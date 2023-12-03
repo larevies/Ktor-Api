@@ -14,6 +14,3 @@ data class User(
     val create_date: String? = null
 )
 
-val users = mutableListOf<User>()
-
- // TODO save user id once logged in?

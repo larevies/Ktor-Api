@@ -1,0 +1,17 @@
+###
+POST http://127.0.0.1:8080/company
+Content-Type: application/json
+
+{
+  "name" : "26",
+  "current_price": 110.0
+}
+
+###
+GET http://127.0.0.1:8080/company
+
+###
+GET http://127.0.0.1:8080/company/18
+
+###
+DELETE http://127.0.0.1:8080/company/19
