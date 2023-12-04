@@ -1,3 +1,494 @@
+DELETE http://127.0.0.1:8080/stock/26
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T103015.202.txt
+
+###
+
+DELETE http://127.0.0.1:8080/stock/26
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102859.400.txt
+
+###
+
+DELETE http://127.0.0.1:8080/stock/26
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102846.400.txt
+
+###
+
+GET http://127.0.0.1:8080/stock/22
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102835.200.json
+
+###
+
+GET http://127.0.0.1:8080/stock/5
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102831.404.txt
+
+###
+
+GET http://127.0.0.1:8080/stock/portfolio/1
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102829.404.txt
+
+###
+
+GET http://127.0.0.1:8080/stock/portfolio/26
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102824.200.json
+
+###
+
+GET http://127.0.0.1:8080/stock/portfolios/26
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "30",
+  "id_company" : "8",
+  "amount": 2,
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102812-1.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "30",
+  "id_company" : "8",
+  "amount": 2,
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102812.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "30",
+  "id_company" : "8",
+  "amount": 2,
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102811.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 144
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "30",
+  "id_company" : "8",
+  "amount": 2,
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102800.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 143
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "1",
+  "id_company" : "8",
+  "amount": 2,
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102746.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 143
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "1",
+  "id_company" : "8",
+  "amount": 2,
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102745-1.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 143
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "1",
+  "id_company" : "8",
+  "amount": 2,
+  "name" : "a89554uiwejfkdm",
+  "current_price": 0.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102745.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "26",
+  "id_company" : "8",
+  "amount": 5,
+  "name" : "asdasfsdf",
+  "current_price": 110.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102743.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "26",
+  "id_company" : "8",
+  "amount": 5,
+  "name" : "asdasfsdf",
+  "current_price": 110.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102742-1.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "26",
+  "id_company" : "8",
+  "amount": 5,
+  "name" : "asdasfsdf",
+  "current_price": 110.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102742.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stock
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "26",
+  "id_company" : "8",
+  "amount": 5,
+  "name" : "asdasfsdf",
+  "current_price": 110.0,
+  "purchase_price": 90.0
+}
+
+<> 2023-12-04T102723.201.txt
+
+###
+
+POST http://127.0.0.1:8080/stocks
+Content-Type: application/json
+Content-Length: 140
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "id_portfolio" : "26",
+  "id_company" : "8",
+  "amount": 5,
+  "name" : "asdasfsdf",
+  "current_price": 110.0,
+  "purchase_price": 90.0
+}
+
+###
+
+GET http://127.0.0.1:8080/portfolio/user/2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102644.200.json
+
+###
+
+DELETE http://127.0.0.1:8080/portfolio/29
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102643.202.txt
+
+###
+
+GET http://127.0.0.1:8080/portfolio/26
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102632.200.json
+
+###
+
+GET http://127.0.0.1:8080/portfolio/user/2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102618.200.json
+
+###
+
+GET http://127.0.0.1:8080/portfolio
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102614.200.json
+
+###
+
+POST http://127.0.0.1:8080/portfolio
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "test",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+<> 2023-12-04T102551.201.txt
+
+###
+
+POST http://127.0.0.1:8080/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "test",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+###
+
+POST http://127.0.0.1:8080/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "test",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+###
+
+POST http://127.0.0.1:8080/portfolios
+Content-Type: application/json
+Content-Length: 132
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "user_id": "2",
+  "name": "tink",
+  "price": 231.3,
+  "total_profit": 2423.1,
+  "profitability": 56.51,
+  "change_day": 546.00
+}
+
+###
+
+DELETE http://127.0.0.1:8080/user/33
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102445.404.txt
+
+###
+
+DELETE http://127.0.0.1:8080/user/13
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102443.202.txt
+
+###
+
+GET http://127.0.0.1:8080/user/2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102429.200.json
+
+###
+
+GET http://127.0.0.1:8080/user
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-12-04T102423.200.json
+
+###
+
+POST http://127.0.0.1:8080/user
+Content-Type: application/json
+Content-Length: 94
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "юзер1",
+  "email": "юююююю@гугл.ком",
+  "password": "зеер"
+}
+
+<> 2023-12-04T102415.201.txt
+
+###
+
 GET http://127.0.0.1:8080/company/18
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
@@ -167,423 +658,6 @@ User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-12-03T223332.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/1/portfolios/26/stocks
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T223315.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/1/portfolios/1/stocks
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T223309.404.txt
-
-###
-
-POST http://127.0.0.1:8080/user/2/portfolios/26/stocks
-Content-Type: application/json
-Content-Length: 140
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "id_portfolio" : "26",
-  "id_company" : "8",
-  "amount": 5,
-  "name" : "asdasfsdf",
-  "current_price": 110.0,
-  "purchase_price": 90.0
-}
-
-<> 2023-12-03T223235.201.txt
-
-###
-
-POST http://127.0.0.1:8080/user/2/portfolios/26/stocks
-Content-Type: application/json
-Content-Length: 153
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "id" : "1",
-  "id_portfolio" : "1",
-  "id_company" : "8",
-  "amount": 5,
-  "name" : "asdasfsdf",
-  "current_price": 110.0,
-  "purchase_price": 90.0
-}
-
-<> 2023-12-03T223159.201.txt
-
-###
-
-POST http://127.0.0.1:8080/user/2/portfolios/26/stocks
-Content-Type: application/json
-Content-Length: 138
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "id" : "1",
-  "id_portfolio" : "1",
-  "id_company" : "8",
-  "name" : "asdasfsdf",
-  "current_price": 110.0,
-  "purchase_price": 90.0
-}
-
-###
-
-POST http://127.0.0.1:8080/user/1/portfolios/1/stocks
-Content-Type: application/json
-Content-Length: 138
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "id" : "1",
-  "id_portfolio" : "1",
-  "id_company" : "8",
-  "name" : "asdasfsdf",
-  "current_price": 110.0,
-  "purchase_price": 90.0
-}
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T223041.200.json
-
-###
-
-DELETE http://127.0.0.1:8080/user/2/portfolios/27
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T223039.202.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T223031.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios/26
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T223025.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T223018.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222620.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios/26
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222610.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios/26
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222608.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222548.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/3/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222541.200.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222535.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/1/portfolios
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222533.200.txt
-
-###
-
-POST http://127.0.0.1:8080/user/2/portfolios
-Content-Type: application/json
-Content-Length: 132
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "user_id": "6",
-  "name": "tink",
-  "price": 231.3,
-  "total_profit": 2423.1,
-  "profitability": 56.51,
-  "change_day": 546.00
-}
-
-<> 2023-12-03T222525.201.txt
-
-###
-
-POST http://127.0.0.1:8080/user/2/portfolios
-Content-Type: application/json
-Content-Length: 132
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "user_id": "3",
-  "name": "tink",
-  "price": 231.3,
-  "total_profit": 2423.1,
-  "profitability": 56.51,
-  "change_day": 546.00
-}
-
-<> 2023-12-03T222519.201.txt
-
-###
-
-POST http://127.0.0.1:8080/user/2/portfolios
-Content-Type: application/json
-Content-Length: 132
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "user_id": "2",
-  "name": "tink",
-  "price": 231.3,
-  "total_profit": 2423.1,
-  "profitability": 56.51,
-  "change_day": 546.00
-}
-
-<> 2023-12-03T222506.201.txt
-
-###
-
-DELETE http://127.0.0.1:8080/user/33
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222456.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/33
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222454.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222451.200.json
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222438.200.json
-
-###
-
-POST http://127.0.0.1:8080/user
-Content-Type: application/json
-Content-Length: 94
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "name": "юзер1",
-  "email": "юююююю@гугл.ком",
-  "password": "зеер"
-}
-
-<> 2023-12-03T222435.201.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222321.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/2
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222247.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222225.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/33
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222223.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222220.404.txt
-
-###
-
-GET http://127.0.0.1:8080/user
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-12-03T222216.200.json
-
-###
-
-POST http://127.0.0.1:8080/user
-Content-Type: application/json
-Content-Length: 97
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-{
-  "name": "юзер11",
-  "email": "апчих@гугл.ком",
-  "password": "кхекхе"
-}
-
-<> 2023-12-03T222212.201.txt
-
-###
-
-GET http://127.0.0.1:8080/user/2/portfolios/26
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
-Accept-Encoding: br,deflate,gzip,x-gzip
 
 ###
 

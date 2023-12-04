@@ -12,12 +12,12 @@ fun Route.portfolioRouting() {
 
     val portfolioQueries = PortfolioQueries()
 
-    route("/user") {
 
+    route("/portfolio") {
         /***
          * Получение всех портфелей пользователя по его ID
          */
-        get("/{id?}/portfolios") {
+        get("user/{id?}") {
             val id = call.parameters["id"] ?: return@get call.respondText(
                 "Missing id",
                 status = HttpStatusCode.BadRequest
@@ -35,14 +35,14 @@ fun Route.portfolioRouting() {
         /***
          * Вывод конкретного портфеля
          */
-        get("/{id?}/portfolios/{portfolioid?}") {
-            val portfolioId = call.parameters["portfolioid"]?.toIntOrNull()
-            if (portfolioId != null) {
-                val portfolio = portfolioQueries.getPortfolioByID(portfolioId)
+        get("{id?}") {
+            val id = call.parameters["id"]?.toIntOrNull()
+            if (id != null) {
+                val portfolio = portfolioQueries.getPortfolioByID(id)
                 if (portfolio != null) {
                     call.respond(portfolio)
                 } else {
-                    call.respondText("No portfolio with id $portfolioId", status = HttpStatusCode.NotFound)
+                    call.respondText("No portfolio with id $id", status = HttpStatusCode.NotFound)
                 }
             } else {
                 call.respondText("Invalid ID", status = HttpStatusCode.BadRequest)
@@ -50,9 +50,21 @@ fun Route.portfolioRouting() {
         }
 
         /***
+         * Вывод вообще всех портфелей (вдруг надо)
+         */
+        get {
+            val portfolios = portfolioQueries.getPortfolios()
+            if (portfolios != null) {
+                call.respond(portfolios)
+            } else {
+                call.respondText("No portfolio found", status = HttpStatusCode.NotFound)
+            }
+        }
+
+        /***
          * Добавление портфеля пользователю
          */
-        post("/{id?}/portfolios") {
+        post {
             val portfolio = call.receive<Portfolio>()
 
             portfolioQueries.addPortfolio(portfolio.user_id, portfolio.name,
@@ -65,15 +77,15 @@ fun Route.portfolioRouting() {
         /***
          * Удаление портфеля по ID
          */
-        delete("/{id?}/portfolios/{portfolioid?}") {
+        delete("{id?}") {
 
-            val portfolio_id = call.parameters["portfolioid"] ?: return@delete call.respondText(
+            val id = call.parameters["id"] ?: return@delete call.respondText(
                 "Missing portfolio id",
                 status = HttpStatusCode.BadRequest
             )
 
-            if (portfolioQueries.getPortfolioByID(portfolio_id.toInt()) != null) {
-                portfolioQueries.deletePortfolio(portfolio_id.toInt())
+            if (portfolioQueries.getPortfolioByID(id.toInt()) != null) {
+                portfolioQueries.deletePortfolio(id.toInt())
                 call.respondText("Portfolio removed correctly", status = HttpStatusCode.Accepted)
             } else {
                 call.respondText("Not Found", status = HttpStatusCode.NotFound)

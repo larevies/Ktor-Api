@@ -9,7 +9,8 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Route.stockRouting() {
-    route("/user") {
+
+    route("/stock") {
 
         val stockQueries = StockQueries()
 
@@ -17,19 +18,19 @@ fun Route.stockRouting() {
         /***
          * Получение всех акций опреденного портфеля определенного пользователя
          */
-        get("/{id?}/portfolios/{portfolioid?}/stocks") {
-            val id_portfolio = call.parameters["portfolioid"] ?: return@get call.respondText(
+        get("portfolio/{id?}") {
+            val id = call.parameters["id"] ?: return@get call.respondText(
                 "Missing portfolio id",
                 status = HttpStatusCode.BadRequest
             )
 
-            val stocksFromDB = stockQueries.getStockByPortfolio(id_portfolio.toInt())
+            val stocksFromDB = stockQueries.getStockByPortfolio(id.toInt())
 
             if (stocksFromDB != null && stocksFromDB.isNotEmpty()) {
                 call.respond(stocksFromDB)
             } else {
                 call.respondText(
-                    "No stocks found for portfolio $id_portfolio",
+                    "No stocks found for portfolio $id",
                     status = HttpStatusCode.NotFound
                 )
             }
@@ -38,24 +39,25 @@ fun Route.stockRouting() {
         /***
          * Вывод конкретной акции
          */
-        get("/{id?}/portfolios/{portfolioid?}/stocks/{stockid?}") {
-            val stockId = call.parameters["stockid"]?.toIntOrNull()
-            if (stockId != null) {
-                val stock = stockQueries.getStockByID(stockId)
+        get("{id?}") {
+            val id = call.parameters["id"]?.toIntOrNull()
+            if (id != null) {
+                val stock = stockQueries.getStockByID(id)
                 if (stock != null) {
                     call.respond(stock)
                 } else {
-                    call.respondText("No stock with id $stockId", status = HttpStatusCode.NotFound)
+                    call.respondText("No stock with id $id", status = HttpStatusCode.NotFound)
                 }
             } else {
                 call.respondText("Invalid ID", status = HttpStatusCode.BadRequest)
             }
         }
 
+
         /***
          * Добавление акции в портфель пользователя
          */
-        post("/{id?}/portfolios/{portfolioid?}/stocks") {
+        post {
             val stock = call.receive<Stock>()
 
             stockQueries.addStock(stock.id_portfolio, stock.id_company,
@@ -69,15 +71,15 @@ fun Route.stockRouting() {
         /***
          * Удаление акции из базы данных
          */
-        delete("/{id?}/portfolios/{portfolioid?}/stocks/{stockid?}") {
-            val stock_id = call.parameters["stockid"] ?: return@delete call.respondText(
+        delete("{id?}") {
+            val id = call.parameters["id"] ?: return@delete call.respondText(
                 "Missing stock id",
                 status = HttpStatusCode.BadRequest
             )
 
 
-            if (stockQueries.getStockByID(stock_id.toInt()) != null) {
-                stockQueries.deleteStock(stock_id.toInt())
+            if (stockQueries.getStockByID(id.toInt()) != null) {
+                stockQueries.deleteStock(id.toInt())
                 call.respondText("Stock removed", status = HttpStatusCode.Accepted)
             } else {
                 call.respondText("Not found", status = HttpStatusCode.NotFound)

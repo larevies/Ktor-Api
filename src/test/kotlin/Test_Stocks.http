@@ -1,6 +1,6 @@
 
 ###
-POST http://127.0.0.1:8080/user/2/portfolios/26/stocks
+POST http://127.0.0.1:8080/stock
 Content-Type: application/json
 
 {
@@ -13,11 +13,11 @@ Content-Type: application/json
 }
 
 ###
-POST http://127.0.0.1:8080/user/1/portfolios/1/stocks
+POST http://127.0.0.1:8080/stock
 Content-Type: application/json
 
 {
-  "id_portfolio" : "1",
+  "id_portfolio" : "30",
   "id_company" : "8",
   "amount": 2,
   "name" : "a89554uiwejfkdm",
@@ -25,22 +25,21 @@ Content-Type: application/json
   "purchase_price": 90.0
 }
 
-
 ###
-GET http://127.0.0.1:8080/user/1/portfolios/26/stocks
+GET http://127.0.0.1:8080/stock/portfolio/26
 Accept: application/json
 
 ###
-GET http://127.0.0.1:8080/user/1/portfolios/5/stocks
+GET http://127.0.0.1:8080/stock/portfolio/1
 Accept: application/json
 
 ###
-GET http://127.0.0.1:8080/user/2/portfolios/1/stocks
+GET http://127.0.0.1:8080/stock/5
 Accept: application/json
 
 ###
-GET http://127.0.0.1:8080/user/2/portfolios/1/stocks/22
+GET http://127.0.0.1:8080/stock/22
 Accept: application/json
 
 ###
-DELETE http://127.0.0.1:8080/user/1/portfolios/1/stocks/21
+DELETE http://127.0.0.1:8080/stock/26

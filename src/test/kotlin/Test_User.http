@@ -34,7 +34,7 @@ Accept: application/json
 DELETE http://127.0.0.1:8080/user/33
 
 ###
-DELETE http://127.0.0.1:8080/user/18
+DELETE http://127.0.0.1:8080/user/13
 
 
 
