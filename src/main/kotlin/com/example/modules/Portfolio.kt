@@ -8,12 +8,12 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Portfolio (
     val id: String? = null,
-    val user_id: String,
+    val userId: String,
     val name: String,
     val price: Double,
-    val total_profit: Double,
+    val totalProfit: Double,
     val profitability: Double,
-    val change_day: Double
+    val changeDay: Double
 )
 
 

@@ -66,12 +66,12 @@ class StockQueries {
                 if (resultSet.next()) {
                     stock = Stock(
                         id = resultSet.getString("id"),
-                        id_portfolio = resultSet.getString("id_portfolio"),
-                        id_company = resultSet.getString("id_company"),
+                        idPortfolio = resultSet.getString("id_portfolio"),
+                        idCompany = resultSet.getString("id_company"),
                         amount = resultSet.getInt("amount"),
                         name = resultSet.getString("name"),
-                        current_price = resultSet.getDouble("current_price"),
-                        purchase_price = resultSet.getDouble("purchase_price")
+                        currentPrice = resultSet.getDouble("current_price"),
+                        purchasePrice = resultSet.getDouble("purchase_price")
                     )
                     //stocks.add(stock)
                 }
@@ -101,12 +101,12 @@ class StockQueries {
                 while (resultSet.next()) {
                     val stock = Stock(
                         id = resultSet.getString("id"),
-                        id_portfolio = resultSet.getString("id_portfolio"),
-                        id_company = resultSet.getString("id_company"),
+                        idPortfolio = resultSet.getString("id_portfolio"),
+                        idCompany = resultSet.getString("id_company"),
                         amount = resultSet.getInt("amount"),
                         name = resultSet.getString("name"),
-                        current_price = resultSet.getDouble("current_price"),
-                        purchase_price = resultSet.getDouble("purchase_price")
+                        currentPrice = resultSet.getDouble("current_price"),
+                        purchasePrice = resultSet.getDouble("purchase_price")
                     )
                     stocks.add(stock)
                 }

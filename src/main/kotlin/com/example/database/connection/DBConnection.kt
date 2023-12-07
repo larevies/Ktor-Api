@@ -28,7 +28,7 @@ fun main() {
          */
 
         //userString(userQueries.getUsers())
-        portfolioString(portfolioQueries.getPortfolios())
+        //portfolioString(portfolioQueries.getPortfolios())
         //companyString(companyQueries.getCompanies())
         //stockString(stockQueries.getStocks())
 
@@ -49,7 +49,8 @@ fun main() {
          */
 
         userQueries.getUserByID(18)
-        portfolioQueries.getPortfolioByID(22)
+        userQueries.authorization("1", "апчих@гугл.ком")
+        //portfolioQueries.getPortfolioByID(22)
         //stockString(stockQueries.getStockByID(1))
         //companyString(companyQueries.getCompanyByID(1))
 
@@ -68,7 +69,7 @@ fun main() {
          * из базы данных по ID
          */
 
-        portfolioQueries.getPortfolioByUser(2)
+        //portfolioQueries.getPortfolioByUser(2)
         //userQueries.deleteUser(1)
         //portfolioQueries.deletePortfolio(1)
         //stockQueries.deleteStock(1)

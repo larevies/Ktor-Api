@@ -56,12 +56,12 @@ class PortfolioQueries {
                 while (resultSet.next()) {
                     val portfolio = Portfolio(
                         id = resultSet.getString("id"),
-                        user_id = resultSet.getString("id_user"),
+                        userId = resultSet.getString("id_user"),
                         name = resultSet.getString("name"),
                         price = resultSet.getDouble("price"),
-                        total_profit = resultSet.getDouble("total_profit"),
+                        totalProfit = resultSet.getDouble("total_profit"),
                         profitability = resultSet.getDouble("profitability"),
-                        change_day = resultSet.getDouble("change_day")
+                        changeDay = resultSet.getDouble("change_day")
                     )
                     portfolios.add(portfolio)
                 }
@@ -92,12 +92,12 @@ class PortfolioQueries {
                 if (resultSet.next()) {
                     portfolio = Portfolio(
                         id = resultSet.getString("id"),
-                        user_id = resultSet.getString("id_user"),
+                        userId = resultSet.getString("id_user"),
                         name = resultSet.getString("name"),
                         price = resultSet.getDouble("price"),
-                        total_profit = resultSet.getDouble("total_profit"),
+                        totalProfit = resultSet.getDouble("total_profit"),
                         profitability = resultSet.getDouble("profitability"),
-                        change_day = resultSet.getDouble("change_day")
+                        changeDay = resultSet.getDouble("change_day")
                     )
                 }
             }
@@ -125,12 +125,12 @@ class PortfolioQueries {
                 while (resultSet.next()) {
                     val portfolio = Portfolio(
                         id = resultSet.getString("id"),
-                        user_id = resultSet.getString("id_user"),
+                        userId = resultSet.getString("id_user"),
                         name = resultSet.getString("name"),
                         price = resultSet.getDouble("price"),
-                        total_profit = resultSet.getDouble("total_profit"),
+                        totalProfit = resultSet.getDouble("total_profit"),
                         profitability = resultSet.getDouble("profitability"),
-                        change_day = resultSet.getDouble("change_day")
+                        changeDay = resultSet.getDouble("change_day")
                     )
                     portfolios.add(portfolio)
                 }

@@ -65,7 +65,7 @@ class UserQueries {
                         name = resultSet.getString("name"),
                         email = resultSet.getString("email"),
                         password = resultSet.getString("id_password"),
-                        create_date = resultSet.getString("create_date")
+                        createDate = resultSet.getString("create_date")
                     )
                     users.add(user)
                 }
@@ -101,7 +101,7 @@ class UserQueries {
                         name = resultSet.getString("name"),
                         email = resultSet.getString("email"),
                         password = resultSet.getString("id_password"),
-                        create_date = resultSet.getString("create_date")
+                        createDate = resultSet.getString("create_date")
                     )
                 }
             }
@@ -129,7 +129,7 @@ class UserQueries {
      * Авторизация пользователя
      * (Сравнение введенного пароля и логина с паролем и логином из базы данных)
      */
-    fun authorization (userPassword:String, email: String) {
+    fun authorization (userPassword:String, email: String): Boolean {
         try {
             val statement = connection?.createStatement()
             val resultSet = statement?.executeQuery(
@@ -146,18 +146,20 @@ class UserQueries {
 
                     """
             )
-            if (resultSet != null) {
-                val isNotEmpty = resultSet.next()
-                if (isNotEmpty) {
-                    println(failedAuthorization)
-                } else {
+            resultSet?.use {
+                if (resultSet.next().toString() != "") {
                     println(successfulAuthorization)
+                    return true
+                } else {
+                    println(failedAuthorization)
+                    return false
                 }
             }
         } catch (e: SQLException) {
             println(queryError)
             println("${e.message}")
         }
+        return false
     }
 
     /***

@@ -81,4 +81,15 @@ fun Route.userRouting() {
             }
         }
     }
+
+    route("/login") {
+        post {
+            val intel = call.receive<Intel>()
+            if (userQueries.authorization(intel.password, intel.password)) {
+                return@post call.respond(HttpStatusCode.Accepted, true)
+            } else {
+                return@post call.respond(HttpStatusCode.Conflict)
+            }
+        }
+    }
 }

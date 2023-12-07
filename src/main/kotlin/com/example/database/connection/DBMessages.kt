@@ -17,36 +17,37 @@ const val queryError = "Ошибка при выполнении запроса.
 const val successfulAuthorization = "Добро пожаловать в аккаунт!"
 const val failedAuthorization = "Пароль или имя пользователя указаны неверно."
 
+
 fun userString (users : List<User>?) {
     users?.forEach{ user ->
         println("Id: ${user.id}, " +
                 "Name: ${user.name}, " +
                 "Email: ${user.email}, " +
                 "Password: ${user.password}, " +
-                "Create date: ${user.create_date}")}
+                "Create date: ${user.createDate}")}
     println()
 }
 
 fun portfolioString (portfolios : List<Portfolio>?) {
     portfolios?.forEach{ portfolio ->
         println("Id: ${portfolio.id}, " +
-                "Owner: ${portfolio.user_id}, " +
+                "Owner: ${portfolio.userId}, " +
                 "Name: ${portfolio.name}, " +
                 "price: ${portfolio.price}, " +
-                "total profit: ${portfolio.total_profit}, " +
+                "total profit: ${portfolio.totalProfit}, " +
                 "profitability: ${portfolio.profitability}, " +
-                "change day: ${portfolio.change_day}")}
+                "change day: ${portfolio.changeDay}")}
     println()
 }
 
 fun stockString (stocks : List<Stock>?) {
     stocks?.forEach{ stock ->
         println("Id: ${stock.id}, " +
-                "Portfolio: ${stock.id_portfolio}, " +
-                "Company: ${stock.id_company}, " +
+                "Portfolio: ${stock.idPortfolio}, " +
+                "Company: ${stock.idCompany}, " +
                 "Name: ${stock.name}, " +
-                "Current price: ${stock.current_price}, " +
-                "Purchase price: ${stock.purchase_price}")}
+                "Current price: ${stock.currentPrice}, " +
+                "Purchase price: ${stock.purchasePrice}")}
     println()
 }
 
@@ -54,6 +55,6 @@ fun companyString (companies : List<Company>?) {
     companies?.forEach{ company ->
         println("Id: ${company.id}, " +
                 "Name: ${company.name}, " +
-                "Current price: ${company.current_price}")}
+                "Current price: ${company.currentPrice}")}
     println()
 }

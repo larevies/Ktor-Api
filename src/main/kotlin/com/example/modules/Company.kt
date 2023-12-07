@@ -9,5 +9,5 @@ import kotlinx.serialization.Serializable
 data class Company(
     val id: String? = null,
     val name : String,
-    val current_price : Double
+    val currentPrice : Double
 )

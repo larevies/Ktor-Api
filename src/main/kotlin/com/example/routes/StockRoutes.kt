@@ -60,8 +60,8 @@ fun Route.stockRouting() {
         post {
             val stock = call.receive<Stock>()
 
-            stockQueries.addStock(stock.id_portfolio, stock.id_company,
-                stock.amount, stock.name, stock.current_price, stock.purchase_price)
+            stockQueries.addStock(stock.idPortfolio, stock.idCompany,
+                stock.amount, stock.name, stock.currentPrice, stock.purchasePrice)
 
             call.respondText("Stock added correctly", status = HttpStatusCode.Created)
         }

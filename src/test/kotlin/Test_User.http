@@ -36,6 +36,24 @@ DELETE http://127.0.0.1:8080/user/33
 ###
 DELETE http://127.0.0.1:8080/user/13
 
+### should be true
+POST http://127.0.0.1:8080/login
+Content-Type: application/json
+
+{
+  "password" : "кхекхе",
+  "login" : "апчих@гугл.ком"
+}
+
+### should be false
+POST http://127.0.0.1:8080/login
+Content-Type: application/json
+
+{
+  "password" : "кхекхе1",
+  "login" : "апчих@гугл.ком"
+}
+
 
 
 

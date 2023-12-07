@@ -8,10 +8,10 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Stock(
     val id: String? = null,
-    val id_portfolio: String,
-    val id_company: String,
+    val idPortfolio: String,
+    val idCompany: String,
     val amount: Int,
     val name : String,
-    val current_price: Double,
-    val purchase_price: Double
+    val currentPrice: Double,
+    val purchasePrice: Double
 )

@@ -55,7 +55,7 @@ class CompanyQueries {
                     val company = Company(
                         id = resultSet.getString("id"),
                         name = resultSet.getString("name"),
-                        current_price = resultSet.getDouble("current_price")
+                        currentPrice = resultSet.getDouble("current_price")
                     )
                     companies.add(company)
                 }
@@ -89,7 +89,7 @@ class CompanyQueries {
                     company = Company(
                         id = resultSet.getString("id"),
                         name = resultSet.getString("name"),
-                        current_price = resultSet.getDouble("current_price")
+                        currentPrice = resultSet.getDouble("current_price")
                     )
                 }
             }

@@ -53,9 +53,8 @@ fun Route.companyRouting() {
         post {
             val company = call.receive<Company>()
 
-            companyQueries.addCompany(company.name,company.current_price)
+            companyQueries.addCompany(company.name,company.currentPrice)
 
-            //companies.add(company)
             call.respondText("Company added correctly", status = HttpStatusCode.Created)
         }
 

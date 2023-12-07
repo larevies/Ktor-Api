@@ -67,9 +67,9 @@ fun Route.portfolioRouting() {
         post {
             val portfolio = call.receive<Portfolio>()
 
-            portfolioQueries.addPortfolio(portfolio.user_id, portfolio.name,
-                                        portfolio.price, portfolio.total_profit,
-                                        portfolio.profitability, portfolio.change_day)
+            portfolioQueries.addPortfolio(portfolio.userId, portfolio.name,
+                                        portfolio.price, portfolio.totalProfit,
+                                        portfolio.profitability, portfolio.changeDay)
 
             call.respondText("Portfolio added correctly", status = HttpStatusCode.Created)
         }
