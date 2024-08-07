@@ -6,15 +6,8 @@
 фреймворка для создания микросервисов и веб-приложений.
 
 Авторы:
-- Соня 
-- Лера
 - **Софья Быковченко**
 - **Валерия Серебренникова**
-
-Можно:
-- Восхищаться нами
-- Воспевать наши подвиги
-- Пользоваться API
 
 ## Как пользоваться API?
 
@@ -78,3 +71,31 @@ DBConnection.kt.
 В папке 
 [routes](src/main/kotlin/com/example/routes) 
 хранятся http-запросы.
+
+## Примеры
+Примеры работы с API (1 - ID объекта):
+ ```
+###
+POST http://127.0.0.1:8080/company
+Content-Type: application/json
+{
+  "name" : "26",
+  "current_price": 110.0
+}
+Response:
+"Company added correctly", status = 201
+
+
+###
+GET http://127.0.0.1:8080/company/1
+Response:
+{
+  "name" : "26",
+  "current_price": 110.0
+}
+
+###
+DELETE http://127.0.0.1:8080/company/1
+Response:
+"Company removed correctly", status = 202
+ ```
